@@ -1,0 +1,9 @@
+package org.lafeuille.demo.cassandra.infra
+
+import org.lafeuille.demo.infra.data.InfraDataConfiguration
+import org.springframework.context.annotation.Configuration
+import org.springframework.data.cassandra.config.EnableReactiveCassandraAuditing
+
+@Configuration
+@EnableReactiveCassandraAuditing(dateTimeProviderRef = InfraDataConfiguration.BeanNames.DATE_TIME_PROVIDER_NAME)
+class InfraDataCassandraConfiguration

@@ -15,6 +15,10 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
+springBoot {
+    mainClass = "org.lafeuille.demo.ApplicationKt"
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
@@ -27,6 +31,8 @@ tasks.withType<Test> {
 }
 
 dependencies {
+    implementation(project(":shared"))
+
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
