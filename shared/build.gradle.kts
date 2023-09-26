@@ -28,7 +28,9 @@ tasks.withType<Test> {
 
 dependencies {
     implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+    implementation(platform(libs.spring.cloud.bom))
 
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.data:spring-data-commons")
+    implementation("org.springframework:spring-webflux")
 }

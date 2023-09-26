@@ -28,6 +28,7 @@ tasks.withType<Test> {
 
 dependencies {
     implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+    implementation(platform(libs.spring.cloud.bom))
 
     implementation(project(":shared"))
 
@@ -43,4 +44,5 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:neo4j")
 }

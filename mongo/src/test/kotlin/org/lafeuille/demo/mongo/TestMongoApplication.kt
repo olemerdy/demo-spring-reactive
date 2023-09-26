@@ -1,14 +1,20 @@
 package org.lafeuille.demo.mongo
 
 import org.lafeuille.demo.Application
-import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.lafeuille.demo.mongo.infra.MongoDefaults
 import org.springframework.boot.fromApplication
-import org.springframework.boot.runApplication
 import org.springframework.boot.test.context.TestConfiguration
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.springframework.boot.with
+import org.springframework.context.annotation.Bean
+import org.testcontainers.containers.MongoDBContainer
 
 @TestConfiguration
-class TestMongoApplication
+class TestMongoApplication {
+    @Bean
+    @ServiceConnection
+    fun mongoDb() = MongoDBContainer(MongoDefaults.DOCKER_IMAGE_NAME)
+}
 
 fun main(args: Array<String>) {
     fromApplication<Application>().with(TestMongoApplication::class).run(*args)

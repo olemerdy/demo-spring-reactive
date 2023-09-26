@@ -28,6 +28,7 @@ tasks.withType<Test> {
 
 dependencies {
     implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+    implementation(platform(libs.spring.cloud.bom))
 
     implementation(project(":shared"))
 
