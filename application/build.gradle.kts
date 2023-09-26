@@ -56,4 +56,5 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:cassandra")
     testImplementation("org.testcontainers:mongodb")
+    testImplementation("org.testcontainers:rabbitmq")
 }
