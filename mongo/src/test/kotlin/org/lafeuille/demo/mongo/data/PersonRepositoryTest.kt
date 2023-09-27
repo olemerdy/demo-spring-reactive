@@ -2,7 +2,8 @@ package org.lafeuille.demo.mongo.data
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.mongo.domain.PersonDefaults
+import org.lafeuille.demo.mongo.domain.PersonFixtures
+import org.lafeuille.demo.mongo.domain.PersonFixtures.defaultNewPerson
 import org.lafeuille.demo.mongo.infra.MongoDefaults
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest
@@ -23,21 +24,13 @@ class PersonRepositoryTest(
     @Test
     fun find_event_by_id() {
         template.insert(defaultNewPerson())
-            .then(repository.findById(PersonDefaults.ID))
+            .then(repository.findById(PersonFixtures.ID))
             .test()
             .assertNext { (id, name, birthDate): Person ->
-                assertThat(id).isEqualTo(PersonDefaults.ID)
-                assertThat(name).isEqualTo(PersonDefaults.NAME)
+                assertThat(id).isEqualTo(PersonFixtures.ID)
+                assertThat(name).isEqualTo(PersonFixtures.NAME)
                 assertThat(birthDate).hasToString("2001-01-01")
             }.verifyComplete()
-    }
-
-    private fun defaultNewPerson(): Person {
-        return Person(
-            id = PersonDefaults.ID,
-            name = PersonDefaults.NAME,
-            birthDate = PersonDefaults.BIRTH_DATE
-        )
     }
 
     companion object {

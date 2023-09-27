@@ -16,9 +16,9 @@ class PersonResponseJsonTest(
     @Throws(IOException::class)
     fun serialize() {
         val personResponse = PersonResponse(
-            id = PersonDefaults.ID,
-            name = PersonDefaults.NAME,
-            birthDate = PersonDefaults.BIRTH_DATE
+            id = PersonFixtures.ID,
+            name = PersonFixtures.NAME,
+            birthDate = PersonFixtures.BIRTH_DATE
         )
         val jsonContent = jacksonTester.write(personResponse)
         assertThat(jsonContent).isEqualToJson("PersonResponse.json")
@@ -28,8 +28,8 @@ class PersonResponseJsonTest(
     @Throws(IOException::class)
     fun deserialize() {
         val (id, name, birthDate) = jacksonTester.readObject("PersonResponse.json")
-        assertThat(id).isEqualTo(PersonDefaults.ID)
-        assertThat(name).isEqualTo(PersonDefaults.NAME)
-        assertThat(birthDate).isEqualTo(PersonDefaults.BIRTH_DATE)
+        assertThat(id).isEqualTo(PersonFixtures.ID)
+        assertThat(name).isEqualTo(PersonFixtures.NAME)
+        assertThat(birthDate).isEqualTo(PersonFixtures.BIRTH_DATE)
     }
 }

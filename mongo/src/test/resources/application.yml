@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    function:
+      definition: mongoProducer;mongoConsumer
+    stream:
+      bindings:
+        mongoConsumer-in-0:
+          group: mongoConsumer
+          destination: myQueue
+        mongoProducer-out-0:
+          group: mongoProducer
+          destination: myQueue

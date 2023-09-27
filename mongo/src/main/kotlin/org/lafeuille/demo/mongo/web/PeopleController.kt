@@ -16,20 +16,17 @@ class PeopleController(
 ) {
 
     @GetMapping
-    fun readPeople(pageable: Pageable): Mono<Page<PersonResponse>> {
-        return service.getPeople(pageable)
-    }
+    fun readPeople(pageable: Pageable): Mono<Page<PersonResponse>> =
+        service.getPeople(pageable)
 
     @GetMapping("{id}")
-    fun readPerson(@PathVariable id: UUID): Mono<ResponseEntity<PersonResponse>> {
-        return service.getPerson(id)
+    fun readPerson(@PathVariable id: UUID): Mono<ResponseEntity<PersonResponse>> =
+        service.getPerson(id)
             .map { ResponseEntity.ok(it) }
             .defaultIfEmpty(ResponseEntity.notFound().build())
-    }
 
     @DeleteMapping("{id}")
-    fun deletePerson(@PathVariable id: UUID): Mono<Void> {
-        return service.deletePerson(id)
-    }
+    fun deletePerson(@PathVariable id: UUID): Mono<Void> =
+        service.deletePerson(id)
 
 }

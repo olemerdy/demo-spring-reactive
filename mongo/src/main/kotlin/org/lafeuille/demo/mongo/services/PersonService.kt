@@ -12,26 +12,24 @@ import reactor.core.publisher.Mono
 import java.util.*
 
 @Service
-class PersonService(private val repository: PersonRepository) {
+class PersonService(
+    private val repository: PersonRepository
+) {
 
-    fun getPeople(pageable: Pageable): Mono<Page<PersonResponse>> {
-        return Mono.zip(
+    fun getPeople(pageable: Pageable): Mono<Page<PersonResponse>> =
+        Mono.zip(
             repository.count(),
             repository.findBy(pageable).collectList()
         ) { count: Long, list: List<Person> ->
-            PageImpl(list, pageable, count).map { person ->
-                responseFromPerson(person)
-            }
+            PageImpl(list, pageable, count)
+                .map { it.toResponse() }
         }
-    }
 
-    fun getPerson(id: UUID): Mono<PersonResponse> {
-        return repository.findById(id)
-            .map { responseFromPerson(it) }
-    }
+    fun getPerson(id: UUID): Mono<PersonResponse> =
+        repository.findById(id)
+            .map { it.toResponse() }
 
     @Transactional
-    fun deletePerson(id: UUID): Mono<Void> {
-        return repository.deleteById(id)
-    }
+    fun deletePerson(id: UUID): Mono<Void> =
+        repository.deleteById(id)
 }
