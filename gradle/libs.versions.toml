@@ -1,11 +1,7 @@
 [versions]
 java = "17"
 spring-boot = "3.1.4"
-spring-cloud = "2022.0.4"
 spring-dependencies-management = "1.1.3"
-
-[libraries]
-spring-cloud-bom = { group = "org.springframework.cloud", name = "spring-cloud-dependencies", version.ref = "spring-cloud" }
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
