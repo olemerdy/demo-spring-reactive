@@ -1,6 +1,6 @@
 package org.lafeuille.demo
 
-import org.lafeuille.demo.cassandra.infra.CassandraDefaults
+import org.lafeuille.demo.infra.cassandra.CassandraDefaults
 import org.lafeuille.demo.infra.RabbitMQDefauts
 import org.lafeuille.demo.infra.mongo.MongoDefaults
 import org.lafeuille.demo.infra.r2dbc.PostgresDefaults

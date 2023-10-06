@@ -1,0 +1,8 @@
+package org.lafeuille.demo.stores.web
+
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+@RequestMapping("api/v1/stores")
+class StoresController

@@ -1,4 +1,4 @@
-package org.lafeuille.demo.people
+package org.lafeuille.demo.stores
 
 import org.lafeuille.demo.Application
 import org.lafeuille.demo.infra.mongo.MongoDefaults

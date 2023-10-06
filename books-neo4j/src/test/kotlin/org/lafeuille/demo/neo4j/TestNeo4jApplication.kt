@@ -1,7 +1,7 @@
 package org.lafeuille.demo.neo4j
 
 import org.lafeuille.demo.Application
-import org.lafeuille.demo.neo4j.infra.Neo4jDefaults
+import org.lafeuille.demo.infra.neo4j.Neo4jDefaults
 import org.springframework.boot.fromApplication
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection

@@ -1,4 +1,4 @@
-package org.lafeuille.demo.cassandra.infra
+package org.lafeuille.demo.infra.cassandra
 
 object CassandraDefaults {
     const val VERSION = "4"

@@ -1,7 +1,7 @@
 package org.lafeuille.demo.redis
 
 import org.lafeuille.demo.Application
-import org.lafeuille.demo.redis.infra.RedisDefaults
+import org.lafeuille.demo.infra.redis.RedisDefaults
 import org.springframework.boot.fromApplication
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection

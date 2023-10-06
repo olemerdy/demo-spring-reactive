@@ -1,7 +1,7 @@
 package org.lafeuille.demo.cassandra
 
 import org.lafeuille.demo.Application
-import org.lafeuille.demo.cassandra.infra.CassandraDefaults
+import org.lafeuille.demo.infra.cassandra.CassandraDefaults
 import org.springframework.boot.fromApplication
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection

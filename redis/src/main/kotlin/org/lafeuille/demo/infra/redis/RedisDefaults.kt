@@ -1,4 +1,4 @@
-package org.lafeuille.demo.redis.infra
+package org.lafeuille.demo.infra.redis
 
 object RedisDefaults {
     const val VERSION = "7"

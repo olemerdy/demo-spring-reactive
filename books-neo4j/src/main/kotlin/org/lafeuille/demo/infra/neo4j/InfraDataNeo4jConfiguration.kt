@@ -1,4 +1,4 @@
-package org.lafeuille.demo.neo4j.infra
+package org.lafeuille.demo.infra.neo4j
 
 import org.lafeuille.demo.infra.data.InfraDataConfiguration
 import org.springframework.context.annotation.Configuration

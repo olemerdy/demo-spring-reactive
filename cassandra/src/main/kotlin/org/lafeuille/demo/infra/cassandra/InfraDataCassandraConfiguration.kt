@@ -1,4 +1,4 @@
-package org.lafeuille.demo.cassandra.infra
+package org.lafeuille.demo.infra.cassandra
 
 import org.lafeuille.demo.infra.data.InfraDataConfiguration
 import org.springframework.context.annotation.Configuration
