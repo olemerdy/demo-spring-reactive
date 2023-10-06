@@ -2,7 +2,8 @@ package org.lafeuille.demo
 
 import org.lafeuille.demo.cassandra.infra.CassandraDefaults
 import org.lafeuille.demo.infra.RabbitMQDefauts
-import org.lafeuille.demo.mongo.infra.MongoDefaults
+import org.lafeuille.demo.infra.mongo.MongoDefaults
+import org.lafeuille.demo.infra.r2dbc.PostgresDefaults
 import org.springframework.boot.fromApplication
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
@@ -10,6 +11,7 @@ import org.springframework.boot.with
 import org.springframework.context.annotation.Bean
 import org.testcontainers.containers.CassandraContainer
 import org.testcontainers.containers.MongoDBContainer
+import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.containers.RabbitMQContainer
 
 @TestConfiguration(proxyBeanMethods = false)
@@ -22,6 +24,10 @@ class TestApplication {
     @Bean
     @ServiceConnection
     fun mongoDb() = MongoDBContainer(MongoDefaults.DOCKER_IMAGE_NAME)
+
+    @Bean
+    @ServiceConnection
+    fun postgres() = PostgreSQLContainer(PostgresDefaults.DOCKER_IMAGE_NAME)
 
     @Bean
     @ServiceConnection

@@ -35,7 +35,8 @@ dependencies {
 
     implementation(project(":shared"))
     implementation(project(":cassandra"))
-    implementation(project(":mongo"))
+    implementation(project(":people-r2dbc"))
+    implementation(project(":stores-mongo"))
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -54,5 +55,8 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:cassandra")
     testImplementation("org.testcontainers:mongodb")
+    testImplementation("org.testcontainers:postgresql")
     testImplementation("org.testcontainers:rabbitmq")
+    testImplementation("org.testcontainers:r2dbc")
+
 }
