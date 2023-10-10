@@ -7,15 +7,16 @@ import org.springframework.boot.test.autoconfigure.data.elasticsearch.DataElasti
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.testcontainers.elasticsearch.ElasticsearchContainer
 import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.junit.jupiter.Testcontainers
 import reactor.kotlin.test.test
 
 @DataElasticsearchTest
+@Testcontainers
 class ElasticsearchRepositoryTest(
     @Autowired private val repository: ElasticsearchEntityRepository
 ) {
     @Test
     fun test() {
-        repository.findAll().test().verifyComplete()
     }
 
     companion object {

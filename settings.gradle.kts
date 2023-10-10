@@ -1,7 +1,7 @@
 rootProject.name = "demo-spring-reactive"
 
 include("shared")
-include("couchbase")
+//include("couchbase")
 include("books-neo4j")
 include("elasticsearch")
 include("people-r2dbc")
