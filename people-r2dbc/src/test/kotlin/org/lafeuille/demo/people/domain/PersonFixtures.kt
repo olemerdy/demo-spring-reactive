@@ -19,6 +19,8 @@ object PersonFixtures {
 
     const val OTHER_NAME = "Jane Doe"
 
+    val OTHER_BIRTH_DATE by lazy { LocalDate.of(2002, Month.FEBRUARY, 2) }
+
     fun defaultNewPerson() = Person(
         id = ID,
         name = NAME,

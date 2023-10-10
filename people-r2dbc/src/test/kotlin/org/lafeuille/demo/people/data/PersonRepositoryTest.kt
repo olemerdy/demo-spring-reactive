@@ -37,6 +37,6 @@ class PersonRepositoryTest(
         @Container
         @ServiceConnection
         @JvmStatic
-        private val postgre: PostgreSQLContainer<*> = PostgreSQLContainer(PostgresDefaults.DOCKER_IMAGE_NAME)
+        private val postgres: PostgreSQLContainer<*> = PostgreSQLContainer(PostgresDefaults.DOCKER_IMAGE_NAME)
     }
 }

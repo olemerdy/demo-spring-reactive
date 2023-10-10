@@ -10,9 +10,8 @@ import java.util.*
 class InfraDataConfiguration {
 
     @Bean(name = [BeanNames.DATE_TIME_PROVIDER_NAME])
-    fun dateTimeProvider(clock: Clock): DateTimeProvider {
-        return DateTimeProvider { Optional.of(clock.instant()) }
-    }
+    fun dateTimeProvider(clock: Clock): DateTimeProvider =
+        DateTimeProvider { Optional.of(clock.instant()) }
 
     object BeanNames {
         const val DATE_TIME_PROVIDER_NAME = "dateTimeProvider"
