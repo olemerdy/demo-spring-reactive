@@ -1,6 +1,6 @@
 package org.lafeuille.demo
 
-import org.lafeuille.demo.infra.RabbitMQDefauts
+import org.lafeuille.demo.infra.RabbitMQDefaults
 import org.lafeuille.demo.infra.cassandra.CassandraDefaults
 import org.lafeuille.demo.infra.mongo.MongoDefaults
 import org.lafeuille.demo.infra.neo4j.Neo4jDefaults
@@ -33,7 +33,7 @@ class TestApplication {
 
     @Bean
     @ServiceConnection
-    fun rabbitMq() = RabbitMQContainer(RabbitMQDefauts.DOCKER_IMAGE_NAME)
+    fun rabbitMq() = RabbitMQContainer(RabbitMQDefaults.DOCKER_IMAGE_NAME)
 }
 
 fun main(args: Array<String>) {

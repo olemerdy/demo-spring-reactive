@@ -12,5 +12,4 @@ data class Book(
     @CreatedDate val createdDate: Instant? = null,
     @LastModifiedDate val lastModifiedDate: Instant? = null,
     @Version val version: Long? = null
-) {
-}
+)
