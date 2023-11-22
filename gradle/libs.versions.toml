@@ -1,7 +1,7 @@
 [versions]
 java = "17"
 spring-boot = "3.1.5"
-spring-dependencies-management = "1.1.3"
+spring-dependencies-management = "1.1.4"
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
