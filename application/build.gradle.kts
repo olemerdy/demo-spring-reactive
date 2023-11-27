@@ -1,14 +1,33 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(libs.plugins.spring.boot)
-    alias(libs.plugins.spring.dependencies.management)
     embeddedKotlin("jvm")
     embeddedKotlin("plugin.spring")
+    id("maven-publish")
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependencies.management)
 }
 
 repositories {
     mavenCentral()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/olemerdy/demo-spring-reactive")
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        create<MavenPublication>("bootJar") {
+            artifact(tasks.named("bootJar"))
+        }
+    }
 }
 
 java {

@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(libs.plugins.spring.boot).apply(false)
-    alias(libs.plugins.spring.dependencies.management)
     embeddedKotlin("jvm")
     embeddedKotlin("plugin.spring")
+    alias(libs.plugins.spring.boot).apply(false)
+    alias(libs.plugins.spring.dependencies.management)
 }
 
 repositories {
