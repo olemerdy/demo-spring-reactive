@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
     embeddedKotlin("jvm")
@@ -36,6 +37,16 @@ java {
 
 springBoot {
     mainClass = "org.lafeuille.demo.ApplicationKt"
+}
+
+tasks.named<BootBuildImage>("bootBuildImage") {
+    imageName.set("gchr.io/olemerdy/${project.name}:${project.version}")
+    docker {
+        publishRegistry {
+            username = System.getenv("USERNAME")
+            password = System.getenv("TOKEN")
+        }
+    }
 }
 
 tasks.withType<KotlinCompile> {
