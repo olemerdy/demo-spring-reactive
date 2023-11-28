@@ -7,7 +7,7 @@ import org.springframework.boot.test.autoconfigure.data.couchbase.DataCouchbaseT
 import org.springframework.context.annotation.Import
 import reactor.kotlin.test.test
 
-@DataCouchbaseTest
+@DataCouchbaseTest(properties = ["spring.data.couchbase.bucket-name=test"])
 @Import(TestCouchbaseApplication::class)
 class CouchbaseEntityRepositoryTest(
     @Autowired private val repository: CouchbaseEntityRepository
