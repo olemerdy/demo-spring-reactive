@@ -11,6 +11,7 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.boot.with
 import org.springframework.context.annotation.Bean
 import org.testcontainers.containers.*
+import java.time.Duration
 
 @TestConfiguration(proxyBeanMethods = false)
 class TestApplication {
