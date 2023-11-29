@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import
 import org.springframework.test.web.reactive.server.WebTestClient
 
 @SpringBootTest
-@Import(TestApplication::class)
+@Import(ContainerTestConfiguration::class)
 @AutoConfigureWebTestClient
 class ApplicationTest(
     @Autowired private val webTestClient: WebTestClient
