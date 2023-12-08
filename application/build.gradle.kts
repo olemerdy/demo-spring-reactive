@@ -65,7 +65,6 @@ dependencies {
 
     implementation(project(":shared"))
     implementation(project(":books-neo4j"))
-    implementation(project(":couchbase"))
     implementation(project(":elasticsearch"))
     implementation(project(":people-r2dbc"))
     implementation(project(":stocks-cassandra"))
@@ -87,7 +86,6 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:cassandra")
-    testImplementation("org.testcontainers:couchbase")
     testImplementation("org.testcontainers:mongodb")
     testImplementation("org.testcontainers:neo4j")
     testImplementation("org.testcontainers:postgresql")

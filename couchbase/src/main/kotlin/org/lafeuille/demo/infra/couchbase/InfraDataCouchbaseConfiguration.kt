@@ -1,9 +1,0 @@
-package org.lafeuille.demo.infra.couchbase
-
-import org.lafeuille.demo.infra.data.InfraDataConfiguration
-import org.springframework.context.annotation.Configuration
-import org.springframework.data.couchbase.repository.auditing.EnableReactiveCouchbaseAuditing
-
-@Configuration
-@EnableReactiveCouchbaseAuditing(dateTimeProviderRef = InfraDataConfiguration.BeanNames.DATE_TIME_PROVIDER_NAME)
-class InfraDataCouchbaseConfiguration

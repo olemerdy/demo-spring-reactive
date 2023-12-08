@@ -1,7 +1,4 @@
 spring:
-  data:
-    couchbase:
-      bucket-name: application-bucket
   threads:
     virtual:
       enabled: false

@@ -3,10 +3,6 @@ services:
     image: cassandra:4
     ports:
       - 9042:9042
-  couchbase:
-    image: couchbase:7
-    ports:
-      - 8091:8091
   mongo:
     image: mongo:6
     ports:
