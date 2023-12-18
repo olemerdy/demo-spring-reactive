@@ -86,6 +86,7 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:cassandra")
+    testImplementation("org.testcontainers:elasticsearch")
     testImplementation("org.testcontainers:mongodb")
     testImplementation("org.testcontainers:neo4j")
     testImplementation("org.testcontainers:postgresql")
