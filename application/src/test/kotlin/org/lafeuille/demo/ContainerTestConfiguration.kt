@@ -2,7 +2,7 @@ package org.lafeuille.demo
 
 import org.lafeuille.demo.infra.RabbitMQDefaults
 import org.lafeuille.demo.infra.cassandra.CassandraDefaults
-import org.lafeuille.demo.infra.couchbase.CouchbaseDefaults
+import org.lafeuille.demo.infra.elasticsearch.ElasticsearchDefaults
 import org.lafeuille.demo.infra.mongo.MongoDefaults
 import org.lafeuille.demo.infra.neo4j.Neo4jDefaults
 import org.lafeuille.demo.infra.r2dbc.PostgresDefaults
@@ -10,9 +10,7 @@ import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.springframework.context.annotation.Bean
 import org.testcontainers.containers.*
-import org.testcontainers.couchbase.BucketDefinition
-import org.testcontainers.couchbase.CouchbaseContainer
-import java.time.Duration
+import org.testcontainers.elasticsearch.ElasticsearchContainer
 
 @TestConfiguration(proxyBeanMethods = false)
 class ContainerTestConfiguration {
@@ -23,10 +21,7 @@ class ContainerTestConfiguration {
 
     @Bean
     @ServiceConnection
-    fun couchbase(): CouchbaseContainer =
-        CouchbaseContainer(CouchbaseDefaults.DOCKER_IMAGE_NAME)
-            .withStartupTimeout(Duration.ofMinutes(5))
-            .withBucket(BucketDefinition("application-bucket"))
+    fun elasticsearch() = ElasticsearchContainer(ElasticsearchDefaults.DOCKER_IMAGE_NAME)
 
     @Bean
     @ServiceConnection
