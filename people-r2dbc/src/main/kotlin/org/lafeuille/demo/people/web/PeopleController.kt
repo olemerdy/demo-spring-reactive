@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono
 import java.util.*
 
 @RestController
-@RequestMapping("/api/v1/people")
+@RequestMapping("api/v1/people")
 class PeopleController(
     private val service: PersonService
 ) {

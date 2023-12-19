@@ -1,6 +1,7 @@
 package org.lafeuille.demo.elasticsearch
 
 import org.lafeuille.demo.Application
+import org.lafeuille.demo.infra.elasticsearch.ElasticsearchContainerTestConfiguration
 import org.springframework.boot.fromApplication
 import org.springframework.boot.with
 

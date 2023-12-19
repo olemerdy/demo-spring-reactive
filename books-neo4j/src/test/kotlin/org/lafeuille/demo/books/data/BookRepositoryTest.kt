@@ -2,7 +2,7 @@ package org.lafeuille.demo.books.data
 
 import org.junit.jupiter.api.Test
 import org.lafeuille.demo.infra.neo4j.InfraDataReactiveNeo4jConfiguration
-import org.lafeuille.demo.neo4j.Neo4jContainerTestConfiguration
+import org.lafeuille.demo.infra.neo4j.Neo4jContainerTestConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.neo4j.DataNeo4jTest
 import org.springframework.context.annotation.Import

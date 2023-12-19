@@ -64,6 +64,11 @@ dependencies {
     implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 
     implementation(project(":shared"))
+    implementation(project(":infra-cassandra"))
+    implementation(project(":infra-elasticsearch"))
+    implementation(project(":infra-mongo"))
+    implementation(project(":infra-neo4j"))
+    implementation(project(":infra-r2dbc"))
     implementation(project(":books-neo4j"))
     implementation(project(":elasticsearch"))
     implementation(project(":people-r2dbc"))

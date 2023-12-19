@@ -2,7 +2,7 @@ package org.lafeuille.demo.people.data
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.people.PeopleContainerTestConfiguration
+import org.lafeuille.demo.infra.r2dbc.R2dbcContainerTestConfiguration
 import org.lafeuille.demo.people.domain.PersonFixtures
 import org.lafeuille.demo.people.domain.PersonFixtures.defaultNewPerson
 import org.springframework.beans.factory.annotation.Autowired
@@ -12,7 +12,7 @@ import org.springframework.data.r2dbc.core.R2dbcEntityTemplate
 import reactor.kotlin.test.test
 
 @DataR2dbcTest
-@Import(PeopleContainerTestConfiguration::class)
+@Import(R2dbcContainerTestConfiguration::class)
 class PersonRepositoryTest(
     @Autowired private val template: R2dbcEntityTemplate,
     @Autowired private val repository: PersonRepository
