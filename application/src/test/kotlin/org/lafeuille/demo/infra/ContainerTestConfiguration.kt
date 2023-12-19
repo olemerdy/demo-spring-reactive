@@ -1,7 +1,5 @@
-package org.lafeuille.demo
+package org.lafeuille.demo.infra
 
-import org.lafeuille.demo.infra.RabbitMQDefaults
-import org.lafeuille.demo.infra.cassandra.CassandraDefaults
 import org.lafeuille.demo.infra.elasticsearch.ElasticsearchDefaults
 import org.lafeuille.demo.infra.mongo.MongoDefaults
 import org.lafeuille.demo.infra.neo4j.Neo4jDefaults
@@ -14,10 +12,6 @@ import org.testcontainers.elasticsearch.ElasticsearchContainer
 
 @TestConfiguration(proxyBeanMethods = false)
 class ContainerTestConfiguration {
-
-    @Bean
-    @ServiceConnection
-    fun cassandra() = CassandraContainer(CassandraDefaults.DOCKER_IMAGE_NAME)
 
     @Bean
     @ServiceConnection

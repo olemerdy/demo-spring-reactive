@@ -12,7 +12,6 @@ gradleEnterprise {
 }
 
 include("shared")
-include("infra-cassandra")
 include("infra-elasticsearch")
 include("infra-mongo")
 include("infra-neo4j")
@@ -20,7 +19,5 @@ include("infra-r2dbc")
 include("books-neo4j")
 include("elasticsearch")
 include("people-r2dbc")
-include("redis")
-include("stocks-cassandra")
 include("stores-mongo")
 include("application")

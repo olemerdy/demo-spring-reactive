@@ -1,6 +1,7 @@
 package org.lafeuille.demo
 
 import org.junit.jupiter.api.Test
+import org.lafeuille.demo.infra.ContainerTestConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest

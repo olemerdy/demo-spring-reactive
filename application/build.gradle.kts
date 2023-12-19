@@ -64,7 +64,6 @@ dependencies {
     implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
 
     implementation(project(":shared"))
-    implementation(project(":infra-cassandra"))
     implementation(project(":infra-elasticsearch"))
     implementation(project(":infra-mongo"))
     implementation(project(":infra-neo4j"))
@@ -72,7 +71,6 @@ dependencies {
     implementation(project(":books-neo4j"))
     implementation(project(":elasticsearch"))
     implementation(project(":people-r2dbc"))
-    implementation(project(":stocks-cassandra"))
     implementation(project(":stores-mongo"))
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -90,7 +88,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:cassandra")
     testImplementation("org.testcontainers:elasticsearch")
     testImplementation("org.testcontainers:mongodb")
     testImplementation("org.testcontainers:neo4j")
