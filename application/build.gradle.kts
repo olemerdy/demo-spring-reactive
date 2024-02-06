@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
-    embeddedKotlin("jvm")
+    `module-convention`
     embeddedKotlin("plugin.spring")
     id("maven-publish")
     alias(libs.plugins.spring.boot)

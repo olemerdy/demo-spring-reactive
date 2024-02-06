@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") apply false
+    kotlin("jvm")
 }
 
 repositories {
@@ -17,7 +17,7 @@ java {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = libs.versions.java.get()
+        jvmTarget = "21"
     }
 }
 
