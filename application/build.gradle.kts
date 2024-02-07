@@ -1,16 +1,11 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
-    embeddedKotlin("jvm")
+    `project-kotlin-jvm`
     embeddedKotlin("plugin.spring")
     id("maven-publish")
     alias(libs.plugins.spring.boot)
     alias(libs.plugins.spring.dependencies.management)
-}
-
-repositories {
-    mavenCentral()
 }
 
 publishing {
@@ -31,10 +26,6 @@ publishing {
     }
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
-}
-
 springBoot {
     mainClass = "org.lafeuille.demo.ApplicationKt"
 }
@@ -47,17 +38,6 @@ tasks.named<BootBuildImage>("bootBuildImage") {
             password = System.getenv("TOKEN")
         }
     }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = libs.versions.java.get()
-    }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }
 
 dependencies {
