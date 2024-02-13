@@ -7,5 +7,5 @@ internal fun Person.toResponse() =
     PersonResponse(
         id = this.id,
         name = this.name,
-        birthDate = this.birthDate
+        birthDate = this.birthDate,
     )

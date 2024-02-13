@@ -12,7 +12,6 @@ import java.time.Clock
 
 @Configuration
 class InfraConfiguration {
-
     @Bean
     @ConditionalOnMissingBean(Clock::class)
     fun clock(): Clock {

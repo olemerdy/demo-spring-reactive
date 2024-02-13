@@ -13,12 +13,11 @@ import reactor.kotlin.test.test
 @DataNeo4jTest
 @Import(
     InfraDataReactiveNeo4jConfiguration::class,
-    Neo4jContainerTestConfiguration::class
+    Neo4jContainerTestConfiguration::class,
 )
 class BookRepositoryTest(
-    @Autowired private val repository: BookRepository
+    @Autowired private val repository: BookRepository,
 ) {
-
     @Test
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     fun test() {

@@ -7,12 +7,14 @@ import org.lafeuille.demo.infra.r2dbc.PostgresDefaults
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.springframework.context.annotation.Bean
-import org.testcontainers.containers.*
+import org.testcontainers.containers.MongoDBContainer
+import org.testcontainers.containers.Neo4jContainer
+import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.containers.RabbitMQContainer
 import org.testcontainers.elasticsearch.ElasticsearchContainer
 
 @TestConfiguration(proxyBeanMethods = false)
 class ContainerTestConfiguration {
-
     @Bean
     @ServiceConnection
     fun elasticsearch() = ElasticsearchContainer(ElasticsearchDefaults.DOCKER_IMAGE_NAME)

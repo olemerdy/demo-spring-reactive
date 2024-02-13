@@ -11,5 +11,5 @@ data class Book(
     @Id @ISBN val isbn: String,
     @CreatedDate val createdDate: Instant? = null,
     @LastModifiedDate val lastModifiedDate: Instant? = null,
-    @Version val version: Long? = null
+    @Version val version: Long? = null,
 )

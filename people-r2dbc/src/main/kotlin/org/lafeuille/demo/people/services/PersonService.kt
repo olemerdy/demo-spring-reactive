@@ -9,17 +9,16 @@ import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import reactor.core.publisher.Mono
-import java.util.*
+import java.util.UUID
 
 @Service
 class PersonService(
-    private val repository: PersonRepository
+    private val repository: PersonRepository,
 ) {
-
     fun getPeople(pageable: Pageable): Mono<Page<PersonResponse>> =
         Mono.zip(
             repository.count(),
-            repository.findBy(pageable).collectList()
+            repository.findBy(pageable).collectList(),
         ) { count: Long, list: List<Person> ->
             PageImpl(list, pageable, count)
                 .map { it.toResponse() }
@@ -30,6 +29,5 @@ class PersonService(
             .map { it.toResponse() }
 
     @Transactional
-    fun deletePerson(id: UUID): Mono<Void> =
-        repository.deleteById(id)
+    fun deletePerson(id: UUID): Mono<Void> = repository.deleteById(id)
 }

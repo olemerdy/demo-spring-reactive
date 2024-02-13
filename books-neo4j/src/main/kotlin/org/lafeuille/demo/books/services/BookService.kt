@@ -11,21 +11,20 @@ import reactor.core.publisher.Mono
 
 @Service
 class BookService(
-        private val repository: BookRepository
+    private val repository: BookRepository,
 ) {
     fun getBooks(pageable: Pageable): Mono<Page<BookResponse>> =
-            Mono.zip(
-                    repository.count(),
-                    repository.findBy(pageable).collectList()
-            ) { count: Long, list: List<Book> ->
-                PageImpl(list, pageable, count)
-                        .map { it.toResponse() }
-            }
+        Mono.zip(
+            repository.count(),
+            repository.findBy(pageable).collectList(),
+        ) { count: Long, list: List<Book> ->
+            PageImpl(list, pageable, count)
+                .map { it.toResponse() }
+        }
 
     fun getBook(isbn: String): Mono<BookResponse> =
-            repository.findById(isbn)
-                    .map { it.toResponse() }
+        repository.findById(isbn)
+            .map { it.toResponse() }
 
-    fun deleteBook(isbn: String): Mono<Void> =
-            repository.deleteById(isbn)
+    fun deleteBook(isbn: String): Mono<Void> = repository.deleteById(isbn)
 }

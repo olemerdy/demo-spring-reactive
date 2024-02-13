@@ -12,9 +12,8 @@ import org.springframework.test.web.reactive.server.WebTestClient
 @Import(ContainerTestConfiguration::class)
 @AutoConfigureWebTestClient
 class ApplicationTest(
-    @Autowired private val webTestClient: WebTestClient
+    @Autowired private val webTestClient: WebTestClient,
 ) {
-
     @Test
     fun contextLoads() {
         webTestClient.get()
@@ -31,5 +30,4 @@ class ApplicationTest(
             .expectBody()
             .jsonPath("$.content.length()").isEqualTo(0)
     }
-
 }

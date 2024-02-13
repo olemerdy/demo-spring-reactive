@@ -10,9 +10,8 @@ import reactor.kotlin.test.test
 @DataMongoTest
 @Import(MongoContainerTestConfiguration::class)
 class StoreRepositoryTest(
-    @Autowired private val repository: StoreRepository
+    @Autowired private val repository: StoreRepository,
 ) {
-
     @Test
     fun test() {
         repository.findAll().test().verifyComplete()

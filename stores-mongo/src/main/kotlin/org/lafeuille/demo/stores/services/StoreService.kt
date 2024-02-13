@@ -12,18 +12,18 @@ import java.util.UUID
 
 @Service
 class StoreService(
-        private val repository: StoreRepository
+    private val repository: StoreRepository,
 ) {
     fun getStores(pageable: Pageable): Mono<Page<StoreResponse>> =
-            Mono.zip(
-                    repository.count(),
-                    repository.findBy(pageable).collectList()
-            ) { count: Long, list: List<Store> ->
-                PageImpl(list, pageable, count)
-                        .map { it.toResponse() }
-            }
+        Mono.zip(
+            repository.count(),
+            repository.findBy(pageable).collectList(),
+        ) { count: Long, list: List<Store> ->
+            PageImpl(list, pageable, count)
+                .map { it.toResponse() }
+        }
 
     fun getStore(id: UUID): Mono<StoreResponse> =
-            repository.findById(id)
-                    .map { it.toResponse() }
+        repository.findById(id)
+            .map { it.toResponse() }
 }

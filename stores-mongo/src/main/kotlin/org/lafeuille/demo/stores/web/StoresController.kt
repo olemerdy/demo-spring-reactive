@@ -15,15 +15,15 @@ import java.util.UUID
 @RestController
 @RequestMapping("api/v1/stores")
 class StoresController(
-        private val service: StoreService
+    private val service: StoreService,
 ) {
-
     @GetMapping
-    fun readStores(pageable: Pageable): Mono<Page<StoreResponse>> =
-            service.getStores(pageable)
+    fun readStores(pageable: Pageable): Mono<Page<StoreResponse>> = service.getStores(pageable)
 
     @GetMapping("{id}")
-    fun readStore(@PathVariable id: UUID): Mono<ResponseEntity<StoreResponse>> =
-            service.getStore(id)
-                    .map{ ResponseEntity.ok(it) }
+    fun readStore(
+        @PathVariable id: UUID,
+    ): Mono<ResponseEntity<StoreResponse>> =
+        service.getStore(id)
+            .map { ResponseEntity.ok(it) }
 }

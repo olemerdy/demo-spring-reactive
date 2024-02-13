@@ -1,6 +1,5 @@
 package org.lafeuille.demo.infra.elasticsearch
 
-import org.lafeuille.demo.infra.elasticsearch.ElasticsearchDefaults
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.springframework.context.annotation.Bean

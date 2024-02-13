@@ -15,9 +15,8 @@ import reactor.kotlin.test.test
 @Import(R2dbcContainerTestConfiguration::class)
 class PersonRepositoryTest(
     @Autowired private val template: R2dbcEntityTemplate,
-    @Autowired private val repository: PersonRepository
+    @Autowired private val repository: PersonRepository,
 ) {
-
     @Test
     fun find_event_by_id() {
         template.insert(defaultNewPerson())

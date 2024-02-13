@@ -12,6 +12,6 @@ class InfraDataReactiveNeo4jConfiguration {
     @Bean(name = [ReactiveNeo4jRepositoryConfigurationExtension.DEFAULT_TRANSACTION_MANAGER_BEAN_NAME])
     fun reactiveTransactionManager(
         driver: Driver,
-        databaseSelectionProvider: ReactiveDatabaseSelectionProvider
+        databaseSelectionProvider: ReactiveDatabaseSelectionProvider,
     ) = ReactiveNeo4jTransactionManager(driver, databaseSelectionProvider)
 }

@@ -76,5 +76,4 @@ dependencies {
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.testcontainers:rabbitmq")
     testImplementation("org.testcontainers:r2dbc")
-
 }

@@ -10,7 +10,7 @@ import reactor.kotlin.test.test
 @DataElasticsearchTest
 @Import(ElasticsearchContainerTestConfiguration::class)
 class ElasticsearchRepositoryTest(
-    @Autowired private val repository: ElasticsearchEntityRepository
+    @Autowired private val repository: ElasticsearchEntityRepository,
 ) {
     @Test
     fun test() {

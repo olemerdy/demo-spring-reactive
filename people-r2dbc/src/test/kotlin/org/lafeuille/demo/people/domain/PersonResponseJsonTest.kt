@@ -9,17 +9,17 @@ import java.io.IOException
 
 @JsonTest
 class PersonResponseJsonTest(
-    @Autowired private val jacksonTester: JacksonTester<PersonResponse>
+    @Autowired private val jacksonTester: JacksonTester<PersonResponse>,
 ) {
-
     @Test
     @Throws(IOException::class)
     fun serialize() {
-        val personResponse = PersonResponse(
-            id = PersonFixtures.ID,
-            name = PersonFixtures.NAME,
-            birthDate = PersonFixtures.BIRTH_DATE
-        )
+        val personResponse =
+            PersonResponse(
+                id = PersonFixtures.ID,
+                name = PersonFixtures.NAME,
+                birthDate = PersonFixtures.BIRTH_DATE,
+            )
         val jsonContent = jacksonTester.write(personResponse)
         assertThat(jsonContent).isEqualToJson("PersonResponse.json")
     }

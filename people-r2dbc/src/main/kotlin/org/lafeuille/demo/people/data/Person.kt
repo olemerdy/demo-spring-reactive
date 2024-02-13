@@ -7,7 +7,7 @@ import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.annotation.Version
 import java.time.Instant
 import java.time.LocalDate
-import java.util.*
+import java.util.UUID
 
 data class Person(
     @Id val id: UUID = UUID.randomUUID(),
@@ -15,5 +15,5 @@ data class Person(
     @field:NotNull val birthDate: LocalDate,
     @CreatedDate val createdDate: Instant? = null,
     @LastModifiedDate val lastModifiedDate: Instant? = null,
-    @Version val version: Long? = null
+    @Version val version: Long? = null,
 )
