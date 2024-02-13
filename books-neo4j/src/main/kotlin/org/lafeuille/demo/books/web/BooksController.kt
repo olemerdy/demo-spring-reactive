@@ -20,12 +20,12 @@ class BooksController(
             service.getBooks(pageable)
 
     @GetMapping("{isbn}")
-    fun readPerson(@PathVariable @ISBN isbn: String): Mono<ResponseEntity<BookResponse>> =
+    fun readBook(@PathVariable @ISBN isbn: String): Mono<ResponseEntity<BookResponse>> =
             service.getBook(isbn)
                     .map { ResponseEntity.ok(it) }
                     .defaultIfEmpty(ResponseEntity.notFound().build())
 
     @DeleteMapping("{isbn}")
-    fun deletePerson(@PathVariable @ISBN isbn: String): Mono<Void> =
+    fun deleteBook(@PathVariable @ISBN isbn: String): Mono<Void> =
             service.deleteBook(isbn)
 }
