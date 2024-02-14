@@ -20,4 +20,6 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:mongodb")
+
+    testImplementation(libs.mockito.kotlin)
 }

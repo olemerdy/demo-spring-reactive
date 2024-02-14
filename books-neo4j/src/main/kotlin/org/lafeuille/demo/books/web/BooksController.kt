@@ -23,7 +23,7 @@ class BooksController(
 
     @GetMapping("{isbn}")
     fun readBook(
-        @PathVariable @ISBN isbn: String,
+        @PathVariable @ISBN(type = ISBN.Type.ANY) isbn: String,
     ): Mono<ResponseEntity<BookResponse>> =
         service.getBook(isbn)
             .map { ResponseEntity.ok(it) }
@@ -31,6 +31,6 @@ class BooksController(
 
     @DeleteMapping("{isbn}")
     fun deleteBook(
-        @PathVariable @ISBN isbn: String,
+        @PathVariable @ISBN(type = ISBN.Type.ANY) isbn: String,
     ): Mono<Void> = service.deleteBook(isbn)
 }

@@ -26,4 +26,5 @@ class StoresController(
     ): Mono<ResponseEntity<StoreResponse>> =
         service.getStore(id)
             .map { ResponseEntity.ok(it) }
+            .defaultIfEmpty(ResponseEntity.notFound().build())
 }
