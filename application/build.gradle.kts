@@ -2,10 +2,9 @@ import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
     `project-kotlin-jvm`
-    embeddedKotlin("plugin.spring")
+    `project-kotlin-spring`
+    id("org.springframework.boot") version "3.2.2"
     id("maven-publish")
-    alias(libs.plugins.spring.boot)
-    alias(libs.plugins.spring.dependencies.management)
 }
 
 publishing {
@@ -41,9 +40,6 @@ tasks.named<BootBuildImage>("bootBuildImage") {
 }
 
 dependencies {
-    implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
-    implementation(platform(libs.spring.cloud.bom))
-
     implementation(project(":shared"))
     implementation(project(":infra-elasticsearch"))
     implementation(project(":infra-mongo"))

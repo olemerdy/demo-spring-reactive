@@ -1,13 +1,9 @@
 plugins {
     `project-kotlin-jvm`
-    embeddedKotlin("plugin.spring")
-    alias(libs.plugins.spring.boot).apply(false)
-    alias(libs.plugins.spring.dependencies.management)
+    `project-kotlin-spring`
 }
 
 dependencies {
-    implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
-
     implementation(project(":shared"))
     implementation(project(":infra-neo4j"))
 
