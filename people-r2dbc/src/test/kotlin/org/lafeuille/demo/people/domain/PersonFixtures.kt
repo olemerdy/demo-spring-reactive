@@ -1,12 +1,11 @@
 package org.lafeuille.demo.people.domain
 
-import org.lafeuille.demo.people.data.Person
 import java.time.LocalDate
 import java.time.Month
 import java.util.UUID
 
 object PersonFixtures {
-    private const val ID_STRING = "e1c47fc3-472d-4c14-8d7a-c1b4d1dbdfe5"
+    const val ID_STRING = "e1c47fc3-472d-4c14-8d7a-c1b4d1dbdfe5"
     val ID: UUID by lazy { UUID.fromString(ID_STRING) }
 
     const val NAME = "John Doe"
@@ -19,11 +18,4 @@ object PersonFixtures {
     const val OTHER_NAME = "Jane Doe"
 
     val OTHER_BIRTH_DATE: LocalDate by lazy { LocalDate.of(2002, Month.FEBRUARY, 2) }
-
-    fun defaultNewPerson() =
-        Person(
-            id = ID,
-            name = NAME,
-            birthDate = BIRTH_DATE,
-        )
 }
