@@ -1,7 +1,8 @@
 package org.lafeuille.demo.stores.web
 
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.stores.domain.StoreResponse
+import org.lafeuille.demo.stores.domain.StoreFixtures
+import org.lafeuille.demo.stores.domain.StoreFixtures.defaultStoreResponse
 import org.lafeuille.demo.stores.services.StoreService
 import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
@@ -38,13 +39,16 @@ class StoresControllerTest(
     @Test
     fun readStore_OK() {
         whenever(service.getStore(any()))
-            .thenReturn(Mono.just(StoreResponse(UUID.randomUUID())))
+            .thenReturn(Mono.just(defaultStoreResponse()))
 
-        client.get().uri("/api/v1/stores/{id}", UUID.randomUUID())
+        client.get().uri("/api/v1/stores/{id}", StoreFixtures.ID)
             .exchange()
             .expectStatus().isOk
             .expectBody()
-            .jsonPath("id").isNotEmpty
+            .jsonPath("id").isEqualTo(StoreFixtures.ID_STRING)
+            .jsonPath("name").isEqualTo(StoreFixtures.NAME)
+            .jsonPath("location.x").isEqualTo(0)
+            .jsonPath("location.y").isEqualTo(0)
     }
 
     @Test
