@@ -67,4 +67,14 @@ class PeopleControllerTest(
             .exchange()
             .expectStatus().isNotFound
     }
+
+    @Test
+    fun deletePerson() {
+        whenever(service.deletePerson(any()))
+            .thenReturn(Mono.empty())
+
+        client.delete().uri("/api/v1/people/{id}", UUID.randomUUID())
+            .exchange()
+            .expectStatus().isNoContent
+    }
 }

@@ -6,4 +6,6 @@ import org.lafeuille.demo.stores.domain.StoreResponse
 internal fun Store.toResponse() =
     StoreResponse(
         id = this.id,
+        name = this.name,
+        location = this.location,
     )
