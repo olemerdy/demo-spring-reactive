@@ -1,15 +1,4 @@
-plugins {
-    id("com.gradle.enterprise") version ("3.16")
-}
-
 rootProject.name = "demo-spring-reactive"
-
-gradleEnterprise {
-    buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
-    }
-}
 
 include("shared")
 include("infra-elasticsearch")
