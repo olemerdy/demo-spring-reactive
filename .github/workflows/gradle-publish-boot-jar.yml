@@ -26,9 +26,10 @@ jobs:
         with:
           distribution: ${{ inputs.java-distribution }}
           java-version: ${{ inputs.java-version }}
+          cache: 'gradle'
       - uses: gradle/actions/setup-gradle@v3
       - name: Publish to Github Packages
-        run: gradle -Pversion=${{ inputs.artifact-version }} publish
+        run: ./gradle -Pversion=${{ inputs.artifact-version }} publish
         env:
           USERNAME: ${{ github.actor }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
