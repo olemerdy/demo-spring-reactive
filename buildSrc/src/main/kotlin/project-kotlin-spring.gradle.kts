@@ -10,6 +10,5 @@ dependencies {
 
     constraints {
         testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
-        testRuntimeOnly("org.apache.commons:commons-compress:1.26.1")
     }
 }
