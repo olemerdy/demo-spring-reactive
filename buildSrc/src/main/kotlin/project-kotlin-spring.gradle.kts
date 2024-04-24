@@ -5,11 +5,11 @@ plugins {
 }
 
 dependencies {
-    api(platform("org.springframework.boot:spring-boot-dependencies:3.2.4"))
-    api(platform("org.springframework.cloud:spring-cloud-dependencies:2023.0.0"))
+    api(platform("org.springframework.boot:spring-boot-dependencies:3.2.5"))
+    api(platform("org.springframework.cloud:spring-cloud-dependencies:2023.0.1"))
 
     constraints {
-        testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+        testImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
         testRuntimeOnly("org.apache.commons:commons-compress:1.26.1")
     }
 }
