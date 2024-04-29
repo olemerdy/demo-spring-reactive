@@ -3,7 +3,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 plugins {
     `project-kotlin-jvm`
     `project-kotlin-spring`
-    id("com.gorylenko.gradle-git-properties") version "2.4.1"
+    id("com.gorylenko.gradle-git-properties") version "2.4.2"
     id("org.springframework.boot") version "3.2.5"
     id("maven-publish")
 }
