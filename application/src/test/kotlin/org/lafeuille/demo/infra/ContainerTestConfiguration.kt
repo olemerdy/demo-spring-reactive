@@ -12,6 +12,7 @@ import org.testcontainers.containers.Neo4jContainer
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.containers.RabbitMQContainer
 import org.testcontainers.elasticsearch.ElasticsearchContainer
+import java.time.Duration
 
 @TestConfiguration(proxyBeanMethods = false)
 class ContainerTestConfiguration {
@@ -29,7 +30,9 @@ class ContainerTestConfiguration {
 
     @Bean
     @ServiceConnection
-    fun postgres() = PostgreSQLContainer(PostgresDefaults.DOCKER_IMAGE_NAME)
+    fun postgres(): PostgreSQLContainer<*> =
+        PostgreSQLContainer(PostgresDefaults.DOCKER_IMAGE_NAME)
+            .withMinimumRunningDuration(Duration.ofSeconds(3))
 
     @Bean
     @ServiceConnection
