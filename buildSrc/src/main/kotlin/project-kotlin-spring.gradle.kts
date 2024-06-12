@@ -10,6 +10,7 @@ dependencies {
 
     constraints {
         testImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
-        testRuntimeOnly("org.apache.commons:commons-compress:1.26.2")
+        testImplementation("org.junit.jupiter:junit-jupiter")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     }
 }
