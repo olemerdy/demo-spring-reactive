@@ -1,6 +1,7 @@
 plugins {
     `project-kotlin-jvm`
     `project-kotlin-spring`
+    `java-test-fixtures`
 }
 
 dependencies {
