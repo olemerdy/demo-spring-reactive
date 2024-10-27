@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    api(platform("org.springframework.boot:spring-boot-dependencies:3.3.3"))
+    api(platform("org.springframework.boot:spring-boot-dependencies:3.3.4"))
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2023.0.3"))
 
     constraints {
