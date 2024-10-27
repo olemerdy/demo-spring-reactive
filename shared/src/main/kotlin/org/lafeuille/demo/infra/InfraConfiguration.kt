@@ -14,13 +14,9 @@ import java.time.Clock
 class InfraConfiguration {
     @Bean
     @ConditionalOnMissingBean(Clock::class)
-    fun clock(): Clock {
-        return Clock.systemUTC()
-    }
+    fun clock(): Clock = Clock.systemUTC()
 
     @Bean
     @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-    fun logger(injectionPoint: InjectionPoint): Logger {
-        return LoggerFactory.getLogger(injectionPoint.member.declaringClass)
-    }
+    fun logger(injectionPoint: InjectionPoint): Logger = LoggerFactory.getLogger(injectionPoint.member.declaringClass)
 }

@@ -1,4 +1,4 @@
-package org.lafeuille.demo.elasticsearch
+package org.lafeuille.demo.contents
 
 import org.lafeuille.demo.Application
 import org.lafeuille.demo.infra.elasticsearch.ElasticsearchContainerTestConfiguration

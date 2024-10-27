@@ -48,7 +48,7 @@ dependencies {
     implementation(project(":infra-neo4j"))
     implementation(project(":infra-r2dbc"))
     implementation(project(":books-neo4j"))
-    implementation(project(":elasticsearch"))
+    implementation(project(":contents-elasticsearch"))
     implementation(project(":people-r2dbc"))
     implementation(project(":stores-mongo"))
 
