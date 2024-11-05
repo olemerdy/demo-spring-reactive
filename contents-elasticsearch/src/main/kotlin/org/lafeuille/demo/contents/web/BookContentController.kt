@@ -15,9 +15,10 @@ import reactor.core.publisher.Mono
 class BookContentController(
     private val service: BookContentService,
 ) {
-
     @GetMapping
-    fun readBookContent(@PathVariable @ISBN(type = ISBN.Type.ANY) isbn: String): Mono<ResponseEntity<BookContent>> {
+    fun readBookContent(
+        @PathVariable @ISBN(type = ISBN.Type.ANY) isbn: String,
+    ): Mono<ResponseEntity<BookContent>> {
         return service.getBookContent(isbn)
             .map { ResponseEntity.ok(it) }
             .defaultIfEmpty(ResponseEntity.notFound().build())

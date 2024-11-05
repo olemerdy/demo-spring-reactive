@@ -9,6 +9,5 @@ import reactor.core.publisher.Mono
 class BookContentService(
     private val repository: BookContentRepository,
 ) {
-    fun getBookContent(isbn: String): Mono<BookContent> =
-        repository.findById(isbn)
+    fun getBookContent(isbn: String): Mono<BookContent> = repository.findById(isbn)
 }
