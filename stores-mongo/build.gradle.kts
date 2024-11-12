@@ -22,4 +22,6 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:mongodb")
     testImplementation("org.mockito.kotlin:mockito-kotlin")
+
+    testFixturesApi("org.springframework.data:spring-data-commons")
 }
