@@ -5,12 +5,11 @@ plugins {
 }
 
 dependencies {
-    api(platform("org.springframework.boot:spring-boot-dependencies:3.3.5"))
+    api(platform("org.springframework.boot:spring-boot-dependencies:3.4.0"))
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2023.0.3"))
 
     constraints {
         testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
-        testImplementation("org.junit.jupiter:junit-jupiter")
-        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+        testImplementation(kotlin("test"))
     }
 }

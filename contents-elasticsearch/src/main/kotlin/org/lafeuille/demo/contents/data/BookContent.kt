@@ -10,7 +10,7 @@ import java.time.Instant
 
 @Document(indexName = "entities")
 data class BookContent(
-    @Id @ISBN val isbn: String,
+    @Id @ISBN(type = ISBN.Type.ANY) val isbn: String,
     @CreatedDate val createdDate: Instant? = null,
     @LastModifiedDate val lastModifiedDate: Instant? = null,
     @Version val version: Long? = null,

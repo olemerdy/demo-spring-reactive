@@ -9,10 +9,11 @@ import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import reactor.core.publisher.Mono
+import reactor.kotlin.core.publisher.cast
 import java.util.UUID
 
 @Service
-class PersonService(
+open class PersonService(
     private val repository: PersonRepository,
 ) {
     fun getPeople(pageable: Pageable): Mono<Page<PersonResponse>> =
@@ -29,5 +30,5 @@ class PersonService(
             .map { it.toResponse() }
 
     @Transactional
-    fun deletePerson(id: UUID): Mono<Void> = repository.deleteById(id)
+    open fun deletePerson(id: UUID): Mono<Unit> = repository.deleteById(id).cast()
 }

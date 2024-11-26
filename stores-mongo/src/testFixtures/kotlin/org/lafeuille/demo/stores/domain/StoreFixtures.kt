@@ -9,7 +9,9 @@ object StoreFixtures {
 
     const val NAME = "Bookstore"
 
-    val LOCATION: Point by lazy { Point(0.0, 0.0) }
+    const val LOCATION_X: Double = 123.0
+    const val LOCATION_Y: Double = 456.0
+    val LOCATION: Point by lazy { Point(LOCATION_X, LOCATION_Y) }
 
     fun defaultStoreResponse() = StoreResponse(id = ID, name = NAME, location = LOCATION)
 }

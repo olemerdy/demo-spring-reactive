@@ -35,5 +35,5 @@ class PeopleController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deletePerson(
         @PathVariable id: UUID,
-    ): Mono<Void> = service.deletePerson(id)
+    ): Mono<Unit> = service.deletePerson(id)
 }

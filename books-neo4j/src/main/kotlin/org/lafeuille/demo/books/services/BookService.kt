@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
+import reactor.kotlin.core.publisher.cast
 
 @Service
 class BookService(
@@ -26,5 +27,5 @@ class BookService(
         repository.findById(isbn)
             .map { it.toResponse() }
 
-    fun deleteBook(isbn: String): Mono<Void> = repository.deleteById(isbn)
+    fun deleteBook(isbn: String): Mono<Unit> = repository.deleteById(isbn).cast()
 }

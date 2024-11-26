@@ -8,9 +8,9 @@ import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
-import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
+import org.springframework.test.context.bean.override.mockito.MockitoBean
 import org.springframework.test.web.reactive.server.WebTestClient
 import reactor.core.publisher.Mono
 import java.util.UUID
@@ -19,7 +19,7 @@ import java.util.UUID
 class StoresControllerTest(
     @Autowired private val client: WebTestClient,
 ) {
-    @MockBean
+    @MockitoBean
     private lateinit var service: StoreService
 
     @Test
@@ -47,8 +47,8 @@ class StoresControllerTest(
             .expectBody()
             .jsonPath("id").isEqualTo(StoreFixtures.ID_STRING)
             .jsonPath("name").isEqualTo(StoreFixtures.NAME)
-            .jsonPath("location.x").isEqualTo(0)
-            .jsonPath("location.y").isEqualTo(0)
+            .jsonPath("location.x").isEqualTo(StoreFixtures.LOCATION_X)
+            .jsonPath("location.y").isEqualTo(StoreFixtures.LOCATION_Y)
     }
 
     @Test

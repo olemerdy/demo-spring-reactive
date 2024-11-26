@@ -35,5 +35,5 @@ class BooksController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deleteBook(
         @PathVariable @ISBN(type = ISBN.Type.ANY) isbn: String,
-    ): Mono<Void> = service.deleteBook(isbn)
+    ): Mono<Unit> = service.deleteBook(isbn)
 }
