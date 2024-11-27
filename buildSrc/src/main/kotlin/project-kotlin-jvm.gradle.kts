@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm")
     id("com.diffplug.spotless")
+    jacoco
+    `jacoco-report-aggregation`
 }
 
 repositories {
@@ -22,6 +24,10 @@ spotless {
     kotlinGradle {
         ktlint()
     }
+}
+
+jacoco {
+
 }
 
 tasks.withType<KotlinCompile> {
