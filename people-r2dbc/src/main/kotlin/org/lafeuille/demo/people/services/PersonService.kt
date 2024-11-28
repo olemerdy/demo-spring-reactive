@@ -13,7 +13,7 @@ import reactor.kotlin.core.publisher.cast
 import java.util.UUID
 
 @Service
-open class PersonService(
+class PersonService(
     private val repository: PersonRepository,
 ) {
     fun getPeople(pageable: Pageable): Mono<Page<PersonResponse>> =
@@ -30,5 +30,5 @@ open class PersonService(
             .map { it.toResponse() }
 
     @Transactional
-    open fun deletePerson(id: UUID): Mono<Unit> = repository.deleteById(id).cast()
+    fun deletePerson(id: UUID): Mono<Unit> = repository.deleteById(id).cast()
 }
