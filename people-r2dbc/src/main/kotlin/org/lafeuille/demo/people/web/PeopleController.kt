@@ -2,8 +2,8 @@ package org.lafeuille.demo.people.web
 
 import org.lafeuille.demo.people.domain.PersonResponse
 import org.lafeuille.demo.people.services.PersonService
-import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PagedModel
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -21,7 +21,7 @@ class PeopleController(
     private val service: PersonService,
 ) {
     @GetMapping
-    fun readPeople(pageable: Pageable): Mono<Page<PersonResponse>> = service.getPeople(pageable)
+    fun readPeople(pageable: Pageable): Mono<PagedModel<PersonResponse>> = service.getPeople(pageable).map { PagedModel(it) }
 
     @GetMapping("{id}")
     fun readPerson(

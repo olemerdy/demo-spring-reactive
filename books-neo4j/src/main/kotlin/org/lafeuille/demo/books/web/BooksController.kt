@@ -3,8 +3,8 @@ package org.lafeuille.demo.books.web
 import org.hibernate.validator.constraints.ISBN
 import org.lafeuille.demo.books.domain.BookResponse
 import org.lafeuille.demo.books.services.BookService
-import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PagedModel
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -21,7 +21,7 @@ class BooksController(
     private val service: BookService,
 ) {
     @GetMapping
-    fun readBooks(pageable: Pageable): Mono<Page<BookResponse>> = service.getBooks(pageable)
+    fun readBooks(pageable: Pageable): Mono<PagedModel<BookResponse>> = service.getBooks(pageable).map { PagedModel(it) }
 
     @GetMapping("{isbn}")
     fun readBook(

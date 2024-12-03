@@ -32,7 +32,10 @@ class BooksControllerTest(
             .exchange()
             .expectStatus().isOk
             .expectBody()
-            .jsonPath("totalPages").isEqualTo(0)
+            .jsonPath("page.size").isEqualTo(20)
+            .jsonPath("page.number").isEqualTo(0)
+            .jsonPath("page.totalElements").isEqualTo(0)
+            .jsonPath("page.totalPages").isEqualTo(0)
     }
 
     @Test
