@@ -9,7 +9,6 @@ dependencies {
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2024.0.0"))
 
     constraints {
-        testImplementation("org.apache.commons:commons-compress:[1.26+,)") // Security fix for TestContainers 1.20.4
         testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
         testImplementation(kotlin("test"))
     }
