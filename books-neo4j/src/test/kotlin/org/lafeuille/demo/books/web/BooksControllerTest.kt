@@ -28,14 +28,21 @@ class BooksControllerTest(
         whenever(service.getBooks(pageRequest))
             .thenReturn(Mono.just(PageImpl(listOf(), pageRequest, 0)))
 
-        client.get().uri("/api/v1/books")
+        client
+            .get()
+            .uri("/api/v1/books")
             .exchange()
-            .expectStatus().isOk
+            .expectStatus()
+            .isOk
             .expectBody()
-            .jsonPath("page.size").isEqualTo(20)
-            .jsonPath("page.number").isEqualTo(0)
-            .jsonPath("page.totalElements").isEqualTo(0)
-            .jsonPath("page.totalPages").isEqualTo(0)
+            .jsonPath("page.size")
+            .isEqualTo(20)
+            .jsonPath("page.number")
+            .isEqualTo(0)
+            .jsonPath("page.totalElements")
+            .isEqualTo(0)
+            .jsonPath("page.totalPages")
+            .isEqualTo(0)
     }
 
     @Test
@@ -43,11 +50,15 @@ class BooksControllerTest(
         whenever(service.getBook(BookFixtures.ISBN))
             .thenReturn(Mono.just(BookResponse(BookFixtures.ISBN)))
 
-        client.get().uri("/api/v1/books/{isbn}", BookFixtures.ISBN)
+        client
+            .get()
+            .uri("/api/v1/books/{isbn}", BookFixtures.ISBN)
             .exchange()
-            .expectStatus().isOk
+            .expectStatus()
+            .isOk
             .expectBody()
-            .jsonPath("isbn").isEqualTo(BookFixtures.ISBN)
+            .jsonPath("isbn")
+            .isEqualTo(BookFixtures.ISBN)
     }
 
     @Test
@@ -55,16 +66,22 @@ class BooksControllerTest(
         whenever(service.getBook(BookFixtures.ISBN))
             .thenReturn(Mono.empty())
 
-        client.get().uri("/api/v1/books/{isbn}", BookFixtures.ISBN)
+        client
+            .get()
+            .uri("/api/v1/books/{isbn}", BookFixtures.ISBN)
             .exchange()
-            .expectStatus().isNotFound
+            .expectStatus()
+            .isNotFound
     }
 
     @Test
     fun readBook_BAD_REQUEST() {
-        client.get().uri("/api/v1/books/{isbn}", "ABC")
+        client
+            .get()
+            .uri("/api/v1/books/{isbn}", "ABC")
             .exchange()
-            .expectStatus().isBadRequest
+            .expectStatus()
+            .isBadRequest
     }
 
     @Test
@@ -72,15 +89,21 @@ class BooksControllerTest(
         whenever(service.deleteBook(any()))
             .thenReturn(Mono.empty())
 
-        client.delete().uri("/api/v1/books/{isbn}", BookFixtures.ISBN)
+        client
+            .delete()
+            .uri("/api/v1/books/{isbn}", BookFixtures.ISBN)
             .exchange()
-            .expectStatus().isNoContent
+            .expectStatus()
+            .isNoContent
     }
 
     @Test
     fun deleteBook_BAD_REQUEST() {
-        client.delete().uri("/api/v1/books/{isbn}", "ABC")
+        client
+            .delete()
+            .uri("/api/v1/books/{isbn}", "ABC")
             .exchange()
-            .expectStatus().isBadRequest
+            .expectStatus()
+            .isBadRequest
     }
 }

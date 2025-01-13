@@ -24,7 +24,8 @@ class StoresController(
     fun readStore(
         @PathVariable id: UUID,
     ): Mono<ResponseEntity<StoreResponse>> =
-        service.getStore(id)
+        service
+            .getStore(id)
             .map { ResponseEntity.ok(it) }
             .defaultIfEmpty(ResponseEntity.notFound().build())
 }

@@ -21,7 +21,9 @@ class BookRepositoryTest(
     @Test
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     fun findAll() {
-        repository.findAll().test()
+        repository
+            .findAll()
+            .test()
             .verifyComplete()
     }
 }

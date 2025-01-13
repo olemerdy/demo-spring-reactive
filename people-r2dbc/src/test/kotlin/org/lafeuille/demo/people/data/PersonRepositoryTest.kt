@@ -19,7 +19,8 @@ class PersonRepositoryTest(
 ) {
     @Test
     fun find_person_page() {
-        repository.findBy(Pageable.ofSize(10))
+        repository
+            .findBy(Pageable.ofSize(10))
             .test()
             .assertNext { (id, name, birthDate): Person ->
                 assertThat(id).isEqualTo(PersonFixtures.ID)
@@ -34,7 +35,8 @@ class PersonRepositoryTest(
 
     @Test
     fun find_person_by_id() {
-        repository.findById(PersonFixtures.ID)
+        repository
+            .findById(PersonFixtures.ID)
             .test()
             .assertNext { (id, name, birthDate): Person ->
                 assertThat(id).isEqualTo(PersonFixtures.ID)

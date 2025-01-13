@@ -29,14 +29,21 @@ class PeopleControllerTest(
         whenever(service.getPeople(pageRequest))
             .thenReturn(Mono.just(PageImpl(listOf(), pageRequest, 0)))
 
-        client.get().uri("/api/v1/people")
+        client
+            .get()
+            .uri("/api/v1/people")
             .exchange()
-            .expectStatus().isOk
+            .expectStatus()
+            .isOk
             .expectBody()
-            .jsonPath("page.size").isEqualTo(20)
-            .jsonPath("page.number").isEqualTo(0)
-            .jsonPath("page.totalElements").isEqualTo(0)
-            .jsonPath("page.totalPages").isEqualTo(0)
+            .jsonPath("page.size")
+            .isEqualTo(20)
+            .jsonPath("page.number")
+            .isEqualTo(0)
+            .jsonPath("page.totalElements")
+            .isEqualTo(0)
+            .jsonPath("page.totalPages")
+            .isEqualTo(0)
     }
 
     @Test
@@ -52,13 +59,19 @@ class PeopleControllerTest(
                 ),
             )
 
-        client.get().uri("/api/v1/people/{id}", PersonFixtures.ID)
+        client
+            .get()
+            .uri("/api/v1/people/{id}", PersonFixtures.ID)
             .exchange()
-            .expectStatus().isOk
+            .expectStatus()
+            .isOk
             .expectBody()
-            .jsonPath("id").isEqualTo(PersonFixtures.ID_STRING)
-            .jsonPath("name").isEqualTo(PersonFixtures.NAME)
-            .jsonPath("birthDate").isEqualTo(PersonFixtures.BIRTH_DATE.toString())
+            .jsonPath("id")
+            .isEqualTo(PersonFixtures.ID_STRING)
+            .jsonPath("name")
+            .isEqualTo(PersonFixtures.NAME)
+            .jsonPath("birthDate")
+            .isEqualTo(PersonFixtures.BIRTH_DATE.toString())
     }
 
     @Test
@@ -66,9 +79,12 @@ class PeopleControllerTest(
         whenever(service.getPerson(any()))
             .thenReturn(Mono.empty())
 
-        client.get().uri("/api/v1/people/{id}", UUID.randomUUID())
+        client
+            .get()
+            .uri("/api/v1/people/{id}", UUID.randomUUID())
             .exchange()
-            .expectStatus().isNotFound
+            .expectStatus()
+            .isNotFound
     }
 
     @Test
@@ -76,8 +92,11 @@ class PeopleControllerTest(
         whenever(service.deletePerson(any()))
             .thenReturn(Mono.empty())
 
-        client.delete().uri("/api/v1/people/{id}", UUID.randomUUID())
+        client
+            .delete()
+            .uri("/api/v1/people/{id}", UUID.randomUUID())
             .exchange()
-            .expectStatus().isNoContent
+            .expectStatus()
+            .isNoContent
     }
 }

@@ -26,7 +26,8 @@ class PersonService(
         }
 
     fun getPerson(id: UUID): Mono<PersonResponse> =
-        repository.findById(id)
+        repository
+            .findById(id)
             .map { it.toResponse() }
 
     @Transactional

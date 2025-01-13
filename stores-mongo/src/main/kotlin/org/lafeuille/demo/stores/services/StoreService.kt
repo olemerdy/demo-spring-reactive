@@ -24,6 +24,7 @@ class StoreService(
         }
 
     fun getStore(id: UUID): Mono<StoreResponse> =
-        repository.findById(id)
+        repository
+            .findById(id)
             .map { it.toResponse() }
 }

@@ -24,7 +24,8 @@ class BookService(
         }
 
     fun getBook(isbn: String): Mono<BookResponse> =
-        repository.findById(isbn)
+        repository
+            .findById(isbn)
             .map { it.toResponse() }
 
     fun deleteBook(isbn: String): Mono<Unit> = repository.deleteById(isbn).cast()

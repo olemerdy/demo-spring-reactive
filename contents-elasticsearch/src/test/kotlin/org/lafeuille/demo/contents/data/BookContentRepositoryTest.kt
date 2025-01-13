@@ -19,7 +19,8 @@ class BookContentRepositoryTest(
 ) {
     @BeforeEach
     fun setUp() {
-        repository.deleteAll()
+        repository
+            .deleteAll()
             .test()
             .verifyComplete()
     }
@@ -27,16 +28,15 @@ class BookContentRepositoryTest(
     @Test
     fun test() {
         val bookContent = BookContent(BookContentFixtures.ISBN13)
-        repository.save(bookContent)
+        repository
+            .save(bookContent)
             .then(
                 elasticsearchTemplate.get(BookContentFixtures.ISBN13, BookContent::class.java),
-            )
-            .test()
+            ).test()
             .assertNext {
                 assertThat(it).isNotNull
                 assertThat(it.isbn).isEqualTo(BookContentFixtures.ISBN13)
                 assertThat(it.version).isEqualTo(1)
-            }
-            .verifyComplete()
+            }.verifyComplete()
     }
 }

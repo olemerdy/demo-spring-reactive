@@ -27,7 +27,8 @@ class PeopleController(
     fun readPerson(
         @PathVariable id: UUID,
     ): Mono<ResponseEntity<PersonResponse>> =
-        service.getPerson(id)
+        service
+            .getPerson(id)
             .map { ResponseEntity.ok(it) }
             .defaultIfEmpty(ResponseEntity.notFound().build())
 

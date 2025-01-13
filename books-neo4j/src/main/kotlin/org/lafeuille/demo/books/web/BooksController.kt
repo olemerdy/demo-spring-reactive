@@ -27,7 +27,8 @@ class BooksController(
     fun readBook(
         @PathVariable @ISBN(type = ISBN.Type.ANY) isbn: String,
     ): Mono<ResponseEntity<BookResponse>> =
-        service.getBook(isbn)
+        service
+            .getBook(isbn)
             .map { ResponseEntity.ok(it) }
             .defaultIfEmpty(ResponseEntity.notFound().build())
 

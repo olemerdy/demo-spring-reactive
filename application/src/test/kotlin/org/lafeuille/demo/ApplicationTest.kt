@@ -16,18 +16,24 @@ class ApplicationTest(
 ) {
     @Test
     fun contextLoads() {
-        webTestClient.get()
+        webTestClient
+            .get()
             .uri("/actuator/health")
             .exchange()
-            .expectStatus().isOk()
+            .expectStatus()
+            .isOk()
             .expectBody()
-            .jsonPath("$.status").isEqualTo("UP")
+            .jsonPath("$.status")
+            .isEqualTo("UP")
 
-        webTestClient.get()
+        webTestClient
+            .get()
             .uri("/api/v1/people")
             .exchange()
-            .expectStatus().isOk()
+            .expectStatus()
+            .isOk()
             .expectBody()
-            .jsonPath("$.content.length()").isEqualTo(0)
+            .jsonPath("$.content.length()")
+            .isEqualTo(0)
     }
 }

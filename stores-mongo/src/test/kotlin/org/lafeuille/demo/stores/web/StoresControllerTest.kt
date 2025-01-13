@@ -29,14 +29,21 @@ class StoresControllerTest(
         whenever(service.getStores(pageRequest))
             .thenReturn(Mono.just(PageImpl(listOf(), pageRequest, 0)))
 
-        client.get().uri("/api/v1/stores")
+        client
+            .get()
+            .uri("/api/v1/stores")
             .exchange()
-            .expectStatus().isOk
+            .expectStatus()
+            .isOk
             .expectBody()
-            .jsonPath("page.size").isEqualTo(20)
-            .jsonPath("page.number").isEqualTo(0)
-            .jsonPath("page.totalElements").isEqualTo(0)
-            .jsonPath("page.totalPages").isEqualTo(0)
+            .jsonPath("page.size")
+            .isEqualTo(20)
+            .jsonPath("page.number")
+            .isEqualTo(0)
+            .jsonPath("page.totalElements")
+            .isEqualTo(0)
+            .jsonPath("page.totalPages")
+            .isEqualTo(0)
     }
 
     @Test
@@ -44,14 +51,21 @@ class StoresControllerTest(
         whenever(service.getStore(any()))
             .thenReturn(Mono.just(defaultStoreResponse()))
 
-        client.get().uri("/api/v1/stores/{id}", StoreFixtures.ID)
+        client
+            .get()
+            .uri("/api/v1/stores/{id}", StoreFixtures.ID)
             .exchange()
-            .expectStatus().isOk
+            .expectStatus()
+            .isOk
             .expectBody()
-            .jsonPath("id").isEqualTo(StoreFixtures.ID_STRING)
-            .jsonPath("name").isEqualTo(StoreFixtures.NAME)
-            .jsonPath("location.x").isEqualTo(StoreFixtures.LOCATION_X)
-            .jsonPath("location.y").isEqualTo(StoreFixtures.LOCATION_Y)
+            .jsonPath("id")
+            .isEqualTo(StoreFixtures.ID_STRING)
+            .jsonPath("name")
+            .isEqualTo(StoreFixtures.NAME)
+            .jsonPath("location.x")
+            .isEqualTo(StoreFixtures.LOCATION_X)
+            .jsonPath("location.y")
+            .isEqualTo(StoreFixtures.LOCATION_Y)
     }
 
     @Test
@@ -59,8 +73,11 @@ class StoresControllerTest(
         whenever(service.getStore(any()))
             .thenReturn(Mono.empty())
 
-        client.get().uri("/api/v1/stores/{id}", UUID.randomUUID())
+        client
+            .get()
+            .uri("/api/v1/stores/{id}", UUID.randomUUID())
             .exchange()
-            .expectStatus().isNotFound
+            .expectStatus()
+            .isNotFound
     }
 }
