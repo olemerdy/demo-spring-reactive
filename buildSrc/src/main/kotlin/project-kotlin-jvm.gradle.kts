@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm")
     id("com.diffplug.spotless")
+    id("com.github.ben-manes.versions")
     jacoco
     `jacoco-report-aggregation`
 }
