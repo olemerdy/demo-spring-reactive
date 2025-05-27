@@ -1,0 +1,17 @@
+[versions]
+ben-manes-versions = "0.52.0"
+gorylenko-git-properties = "2.4.2"
+mockito-kotlin = "5.4.0"
+spotless = "7.0.3"
+spring-boot = "3.4.5"
+spring-cloud = "2024.0.1"
+spring-dependency-management = "1.1.7"
+
+[libraries]
+spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-cloud-bom = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
+
+[plugins]
+gorylenko-git-properties = { id = "com.gorylenko.gradle-git-properties", version.ref = "gorylenko-git-properties" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }

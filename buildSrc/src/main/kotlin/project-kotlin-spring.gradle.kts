@@ -1,15 +1,19 @@
+import org.gradle.accessors.dm.LibrariesForLibs
+
 plugins {
     kotlin("jvm")
     kotlin("plugin.spring")
     id("io.spring.dependency-management")
 }
 
+val libs = the<LibrariesForLibs>()
+
 dependencies {
-    api(platform("org.springframework.boot:spring-boot-dependencies:3.4.5"))
-    api(platform("org.springframework.cloud:spring-cloud-dependencies:2024.0.1"))
+    api(platform(libs.spring.boot.bom))
+    api(platform(libs.spring.cloud.bom))
 
     constraints {
-        testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
+        testImplementation(libs.mockito.kotlin)
         testImplementation(kotlin("test"))
     }
 }
