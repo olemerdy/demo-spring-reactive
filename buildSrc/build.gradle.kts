@@ -10,7 +10,9 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$embeddedKotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-allopen:$embeddedKotlinVersion")
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:7.0.3")
-    implementation("com.github.ben-manes:gradle-versions-plugin:0.52.0")
-    implementation("io.spring.gradle:dependency-management-plugin:1.1.7")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:${libs.versions.spotless.get()}")
+    implementation("com.github.ben-manes:gradle-versions-plugin:${libs.versions.ben.manes.versions.get()}")
+    implementation("io.spring.gradle:dependency-management-plugin:${libs.versions.spring.dependency.management.get()}")
+
+    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
