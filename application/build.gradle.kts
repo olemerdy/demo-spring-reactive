@@ -26,6 +26,12 @@ publishing {
     }
 }
 
+gitProperties {
+    dotGitDirectory =
+        project.rootProject.layout.projectDirectory
+            .dir(".git")
+}
+
 springBoot {
     mainClass = "org.lafeuille.demo.ApplicationKt"
     buildInfo()
