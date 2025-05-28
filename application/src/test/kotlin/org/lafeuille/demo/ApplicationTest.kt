@@ -15,7 +15,7 @@ class ApplicationTest(
     @Autowired private val webTestClient: WebTestClient,
 ) {
     @Test
-    fun contextLoads() {
+    fun actuatorLoads() {
         webTestClient
             .get()
             .uri("/actuator/health")
@@ -25,7 +25,10 @@ class ApplicationTest(
             .expectBody()
             .jsonPath("$.status")
             .isEqualTo("UP")
+    }
 
+    @Test
+    fun peopleApiLoads() {
         webTestClient
             .get()
             .uri("/api/v1/people")
