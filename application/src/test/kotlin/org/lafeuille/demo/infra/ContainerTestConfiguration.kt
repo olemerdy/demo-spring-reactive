@@ -6,6 +6,7 @@ import org.lafeuille.demo.infra.neo4j.Neo4jDefaults
 import org.lafeuille.demo.infra.r2dbc.PostgresDefaults
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
+import org.springframework.boot.testcontainers.service.connection.Ssl
 import org.springframework.context.annotation.Bean
 import org.testcontainers.containers.MongoDBContainer
 import org.testcontainers.containers.Neo4jContainer
@@ -18,6 +19,7 @@ import java.time.Duration
 class ContainerTestConfiguration {
     @Bean
     @ServiceConnection
+    @Ssl
     fun elasticsearch() = ElasticsearchContainer(ElasticsearchDefaults.DOCKER_IMAGE_NAME)
 
     @Bean

@@ -1,8 +1,9 @@
 services:
-  cassandra:
-    image: cassandra:4
+  elasticsearch:
+    image: elasticsearch:8.18.1
     ports:
-      - "9042:9042"
+      - "9200:9200"
+      - "9300:9300"
   mongo:
     image: mongo:6
     ports:
