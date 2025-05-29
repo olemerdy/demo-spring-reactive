@@ -8,10 +8,14 @@ plugins {
 
 val libs = the<LibrariesForLibs>()
 
-dependencies {
-    api(platform(libs.spring.boot.bom))
-    api(platform(libs.spring.cloud.bom))
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:${libs.versions.spring.boot.get()}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${libs.versions.spring.cloud.get()}")
+    }
+}
 
+dependencies {
     constraints {
         testImplementation(libs.mockito.kotlin)
         testImplementation(kotlin("test"))
