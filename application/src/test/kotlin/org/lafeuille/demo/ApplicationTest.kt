@@ -1,15 +1,12 @@
 package org.lafeuille.demo
 
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.infra.ContainerTestConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.annotation.Import
 import org.springframework.test.web.reactive.server.WebTestClient
 
-@SpringBootTest
-@Import(ContainerTestConfiguration::class)
+@SpringBootTest(properties = ["spring.docker.compose.skip.in-tests=false"])
 @AutoConfigureWebTestClient
 class ApplicationTest(
     @Autowired private val webTestClient: WebTestClient,

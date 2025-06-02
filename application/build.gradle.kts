@@ -67,17 +67,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+    testAndDevelopmentOnly("org.springframework.boot:spring-boot-devtools")
+    testAndDevelopmentOnly("org.springframework.boot:spring-boot-docker-compose")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("io.projectreactor:reactor-test")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:elasticsearch")
-    testImplementation("org.testcontainers:mongodb")
-    testImplementation("org.testcontainers:neo4j")
-    testImplementation("org.testcontainers:postgresql")
-    testImplementation("org.testcontainers:rabbitmq")
-    testImplementation("org.testcontainers:r2dbc")
 }

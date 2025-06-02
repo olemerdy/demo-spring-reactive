@@ -4,6 +4,8 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    environment:
+      - xpack.security.enabled=false
   mongo:
     image: mongo:6
     ports:
@@ -19,4 +21,5 @@ services:
   rabbitmq:
     image: rabbitmq:3
     ports:
+      - "5672:5672"
       - "54130:54130"
