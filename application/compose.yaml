@@ -18,8 +18,9 @@ services:
     image: postgres:16
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
   rabbitmq:
     image: rabbitmq:3
     ports:
       - "5672:5672"
-      - "54130:54130"
