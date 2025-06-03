@@ -5,6 +5,8 @@ services:
       - "9200:9200"
       - "9300:9300"
     environment:
+      - cluster.routing.allocation.disk.threshold_enabled=false
+      - discovery.type=single-node
       - xpack.security.enabled=false
   mongo:
     image: mongo:6
