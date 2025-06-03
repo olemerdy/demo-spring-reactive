@@ -25,10 +25,36 @@ class ApplicationTest(
     }
 
     @Test
+    fun booksApiLoads() {
+        webTestClient
+            .get()
+            .uri("/api/v1/books")
+            .exchange()
+            .expectStatus()
+            .isOk()
+            .expectBody()
+            .jsonPath("$.content.length()")
+            .isEqualTo(0)
+    }
+
+    @Test
     fun peopleApiLoads() {
         webTestClient
             .get()
             .uri("/api/v1/people")
+            .exchange()
+            .expectStatus()
+            .isOk()
+            .expectBody()
+            .jsonPath("$.content.length()")
+            .isEqualTo(0)
+    }
+
+    @Test
+    fun storesApiLoads() {
+        webTestClient
+            .get()
+            .uri("/api/v1/stores")
             .exchange()
             .expectStatus()
             .isOk()
