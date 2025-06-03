@@ -4,6 +4,10 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    environment:
+      - cluster.routing.allocation.disk.threshold_enabled=false
+      - discovery.type=single-node
+      - xpack.security.enabled=false
   mongo:
     image: mongo:6
     ports:
@@ -12,11 +16,15 @@ services:
     image: neo4j:5
     ports:
       - "7687:7687"
+    environment:
+      - NEO4J_AUTH=none
   postgres:
     image: postgres:16
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
   rabbitmq:
     image: rabbitmq:3
     ports:
-      - "54130:54130"
+      - "5672:5672"
