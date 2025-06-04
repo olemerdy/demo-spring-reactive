@@ -38,7 +38,7 @@ springBoot {
 }
 
 tasks.named<BootBuildImage>("bootBuildImage") {
-    imageName.set("gchr.io/olemerdy/${project.name}:${project.version}")
+    imageName.set("gchr.io/olemerdy/${rootProject.name}:${project.version}")
     docker {
         publishRegistry {
             username = System.getenv("USERNAME")
