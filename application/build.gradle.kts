@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.gorylenko.git.properties)
     alias(libs.plugins.spring.boot)
     id("maven-publish")
+    `jacoco-report-aggregation`
 }
 
 publishing {
@@ -45,6 +46,10 @@ tasks.named<BootBuildImage>("bootBuildImage") {
             password = System.getenv("TOKEN")
         }
     }
+}
+
+tasks.check {
+    dependsOn(tasks.named<JacocoReport>("testCodeCoverageReport"))
 }
 
 dependencies {

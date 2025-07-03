@@ -5,7 +5,6 @@ plugins {
     id("com.diffplug.spotless")
     id("com.github.ben-manes.versions")
     jacoco
-    `jacoco-report-aggregation`
 }
 
 repositories {
