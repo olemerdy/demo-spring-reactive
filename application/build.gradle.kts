@@ -48,10 +48,6 @@ tasks.named<BootBuildImage>("bootBuildImage") {
     }
 }
 
-tasks.check {
-    dependsOn(tasks.named<JacocoReport>("testCodeCoverageReport"))
-}
-
 dependencies {
     implementation(project(":shared"))
     implementation(project(":infra-elasticsearch"))
