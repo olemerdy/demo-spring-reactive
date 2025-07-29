@@ -14,6 +14,10 @@ start: ## Start the application
 	@echo "Starting the application"
 	@gradle bootRun
 
+test: ## Test the application
+	@echo "Test the application"
+	@gradle check testCodeCoverageReport
+
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
