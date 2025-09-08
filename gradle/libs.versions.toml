@@ -1,6 +1,6 @@
 [versions]
 ben-manes-versions = "0.52.0"
-gorylenko-git-properties = "2.5.2"
+gorylenko-git-properties = "2.5.3"
 mockito-kotlin = "6.0.0"
 spotless = "7.2.1"
 spring-boot = "3.5.5"
