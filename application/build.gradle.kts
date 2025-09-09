@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.gorylenko.git.properties)
     alias(libs.plugins.spring.boot)
     id("maven-publish")
+    `jacoco-report-aggregation`
 }
 
 publishing {
