@@ -1,5 +1,5 @@
 [versions]
-gorylenko-git-properties = "2.5.3"
+gorylenko-git-properties = "2.5.4"
 mockito-kotlin = "6.1.0"
 spotless = "7.2.1"
 spring-boot = "3.5.7"
