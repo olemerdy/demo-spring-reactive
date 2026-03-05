@@ -11,7 +11,7 @@ on:
         default: 'temurin'
       java-version:
         type: string
-        default: '21'
+        default: '25'
 
 jobs:
   publish-boot-jar:
