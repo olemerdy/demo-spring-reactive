@@ -1,0 +1,3 @@
+plugins {
+    `project-kotlin-module`
+}

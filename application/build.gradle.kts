@@ -1,11 +1,64 @@
-import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
-
 plugins {
-    `project-kotlin-jvm`
-    `project-kotlin-spring`
+    `project-kotlin-module`
     alias(libs.plugins.gorylenko.git.properties)
     alias(libs.plugins.spring.boot)
     id("maven-publish")
+}
+
+dependencies {
+    implementation(project(":infra-shared"))
+
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-amqp")
+    implementation("org.springframework.boot:spring-boot-starter-data-cassandra-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-data-couchbase-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-data-neo4j")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-flyway")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-webclient")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation("org.springframework:spring-jdbc")
+    implementation("org.springframework.modulith:spring-modulith-events-api")
+    implementation("org.springframework.modulith:spring-modulith-starter-core")
+    implementation("org.springframework.modulith:spring-modulith-starter-neo4j")
+    implementation("tools.jackson.module:jackson-module-kotlin")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    runtimeOnly("org.springframework.modulith:spring-modulith-actuator")
+    runtimeOnly("org.springframework.modulith:spring-modulith-events-amqp")
+    runtimeOnly("org.springframework.modulith:spring-modulith-observability")
+    testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-amqp-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-cassandra-reactive-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-couchbase-reactive-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-elasticsearch-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-neo4j-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-r2dbc-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-redis-reactive-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-flyway-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-validation-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webclient-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
+    testImplementation("org.springframework.boot:spring-boot-testcontainers")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
+    testImplementation("org.springframework.modulith:spring-modulith-starter-test")
+    testImplementation("org.testcontainers:testcontainers-cassandra")
+    testImplementation("org.testcontainers:testcontainers-couchbase")
+    testImplementation("org.testcontainers:testcontainers-elasticsearch")
+    testImplementation("org.testcontainers:testcontainers-junit-jupiter")
+    testImplementation("org.testcontainers:testcontainers-mongodb")
+    testImplementation("org.testcontainers:testcontainers-neo4j")
+    testImplementation("org.testcontainers:testcontainers-r2dbc")
+    testImplementation("org.testcontainers:testcontainers-rabbitmq")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 publishing {
@@ -37,39 +90,12 @@ springBoot {
     buildInfo()
 }
 
-tasks.named<BootBuildImage>("bootBuildImage") {
-    imageName.set("gchr.io/olemerdy/${rootProject.name}:${project.version}")
-    docker {
-        publishRegistry {
-            username = System.getenv("USERNAME")
-            password = System.getenv("TOKEN")
-        }
-    }
-}
-
-dependencies {
-    implementation(project(":shared"))
-    implementation(project(":infra-elasticsearch"))
-    implementation(project(":infra-mongo"))
-    implementation(project(":infra-neo4j"))
-    implementation(project(":infra-r2dbc"))
-    implementation(project(":books-neo4j"))
-    implementation(project(":contents-elasticsearch"))
-    implementation(project(":people-r2dbc"))
-    implementation(project(":stores-mongo"))
-
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-
-    testAndDevelopmentOnly("org.springframework.boot:spring-boot-devtools")
-    testAndDevelopmentOnly("org.springframework.boot:spring-boot-docker-compose")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.projectreactor:reactor-test")
-}
+//tasks.named<BootBuildImage>("bootBuildImage") {
+//    imageName.set("gchr.io/olemerdy/${rootProject.name}:${project.version}")
+//    docker {
+//        publishRegistry {
+//            username = System.getenv("USERNAME")
+//            password = System.getenv("TOKEN")
+//        }
+//    }
+//}

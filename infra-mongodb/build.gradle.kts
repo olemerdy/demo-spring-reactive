@@ -4,5 +4,5 @@ plugins {
 
 dependencies {
     implementation(project(":infra-shared"))
-    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
 }

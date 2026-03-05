@@ -1,10 +1,9 @@
 plugins {
-    `project-kotlin-jvm`
-    `project-kotlin-spring`
+    `project-kotlin-module`
+    `java-test-fixtures`
 }
 
 dependencies {
-    implementation(project(":shared"))
-
+    implementation(project(":infra-shared"))
     implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
 }
