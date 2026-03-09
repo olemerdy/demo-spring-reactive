@@ -5,21 +5,23 @@ plugins {
 
 dependencies {
     implementation(project(":infra-shared"))
-    implementation(project(":infra-mongodb"))
+    implementation(project(":infra-r2dbc"))
 
-    implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework:spring-jdbc")
+    implementation("org.flywaydb:flyway-core")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
-    testImplementation(testFixtures(project(":infra-mongodb")))
+    runtimeOnly("org.flywaydb:flyway-database-postgresql")
+    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.postgresql:r2dbc-postgresql")
+
+    testImplementation(testFixtures(project(":infra-postgresql")))
 
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.mockito.kotlin:mockito-kotlin")
-    testImplementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive-test")
-    testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
-
-    testFixturesApi("org.springframework.data:spring-data-commons")
 }

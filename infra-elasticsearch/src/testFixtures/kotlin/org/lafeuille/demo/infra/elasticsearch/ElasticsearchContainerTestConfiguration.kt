@@ -12,4 +12,5 @@ class ElasticsearchContainerTestConfiguration {
     @ServiceConnection
     fun elasticsearchContainer(): ElasticsearchContainer =
         ElasticsearchContainer(DockerImageName.parse(ElasticsearchDefaults.DOCKER_IMAGE_NAME))
+            .withEnv("xpack.security.enabled", "" + false)
 }

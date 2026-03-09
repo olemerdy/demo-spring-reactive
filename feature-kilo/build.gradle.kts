@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     implementation(project(":infra-shared"))
-    implementation(project(":infra-neo4j"))
+    implementation(project(":infra-kafka"))
 
-    testImplementation(testFixtures(project(":infra-neo4j")))
+    testImplementation(testFixtures(project(":infra-kafka")))
 }
