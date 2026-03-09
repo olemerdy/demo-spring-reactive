@@ -32,6 +32,11 @@ dependencyManagement {
     }
 }
 
+dependencies {
+    testImplementation(kotlin("test"))
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
 spotless {
     json {
         target("src/**/*.json")

@@ -47,7 +47,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-webclient-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
     testImplementation("org.testcontainers:testcontainers-cassandra")
@@ -58,7 +57,6 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers-neo4j")
     testImplementation("org.testcontainers:testcontainers-r2dbc")
     testImplementation("org.testcontainers:testcontainers-rabbitmq")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 publishing {

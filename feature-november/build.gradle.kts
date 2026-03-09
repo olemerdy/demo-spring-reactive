@@ -5,5 +5,5 @@ plugins {
 
 dependencies {
     implementation(project(":infra-shared"))
-    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation(project(":infra-neo4j"))
 }
