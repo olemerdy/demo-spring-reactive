@@ -8,5 +8,4 @@ dependencies {
     testFixturesApi("org.springframework.boot:spring-boot-testcontainers")
     testFixturesApi("org.testcontainers:testcontainers-junit-jupiter")
     testFixturesApi("org.testcontainers:testcontainers-postgresql")
-    testFixturesApi("org.testcontainers:testcontainers-r2dbc")
 }

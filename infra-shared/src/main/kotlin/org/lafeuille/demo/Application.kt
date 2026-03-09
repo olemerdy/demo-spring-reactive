@@ -1,4 +1,4 @@
-package org.lafeuille.org.lafeuille.demo
+package org.lafeuille.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

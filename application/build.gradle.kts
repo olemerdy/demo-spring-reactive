@@ -33,6 +33,8 @@ dependencies {
     runtimeOnly("org.springframework.modulith:spring-modulith-actuator")
     runtimeOnly("org.springframework.modulith:spring-modulith-events-amqp")
     runtimeOnly("org.springframework.modulith:spring-modulith-observability")
+
+    testImplementation(testFixtures(project(":infra-mongodb")))
     testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")
     testImplementation("org.springframework.boot:spring-boot-starter-amqp-test")
     testImplementation("org.springframework.boot:spring-boot-starter-data-cassandra-reactive-test")
@@ -88,7 +90,7 @@ springBoot {
     buildInfo()
 }
 
-//tasks.named<BootBuildImage>("bootBuildImage") {
+// tasks.named<BootBuildImage>("bootBuildImage") {
 //    imageName.set("gchr.io/olemerdy/${rootProject.name}:${project.version}")
 //    docker {
 //        publishRegistry {
@@ -96,4 +98,4 @@ springBoot {
 //            password = System.getenv("TOKEN")
 //        }
 //    }
-//}
+// }

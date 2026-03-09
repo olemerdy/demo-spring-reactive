@@ -1,4 +1,4 @@
-package org.lafeuille.demo.infra.elasticsearch
+package org.lafeuille.demo.infra.org.lafeuille.demo.infra.elasticsearch
 
 import org.lafeuille.demo.infra.data.InfraDataConfiguration
 import org.springframework.context.annotation.Configuration
