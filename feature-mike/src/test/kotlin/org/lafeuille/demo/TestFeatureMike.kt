@@ -1,6 +1,5 @@
-package org.lafeuille.demo.stores
+package org.lafeuille.demo
 
-import org.lafeuille.demo.Application
 import org.lafeuille.demo.infra.mongo.MongoContainerTestConfiguration
 import org.springframework.boot.fromApplication
 import org.springframework.boot.with
