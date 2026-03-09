@@ -1,4 +1,4 @@
-package org.lafeuille.demo.infra.r2dbc
+package org.lafeuille.demo.infra.postgresql
 
 // see https://github.com/spring-projects/spring-boot/issues/40325
 object PostgresDefaults {
