@@ -10,6 +10,5 @@ import org.testcontainers.utility.DockerImageName
 class Neo4JContainerTestConfiguration {
     @Bean
     @ServiceConnection
-    fun neo4jContainer(): Neo4jContainer =
-        Neo4jContainer(DockerImageName.parse(Neo4jDefaults.DOCKER_IMAGE_NAME))
+    fun neo4jContainer(): Neo4jContainer = Neo4jContainer(DockerImageName.parse(Neo4jDefaults.DOCKER_IMAGE_NAME))
 }
