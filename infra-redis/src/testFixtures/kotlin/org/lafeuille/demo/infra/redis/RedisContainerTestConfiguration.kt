@@ -12,5 +12,5 @@ class RedisContainerTestConfiguration {
     @ServiceConnection(name = "redis")
     fun redisContainer(): GenericContainer<*> =
         GenericContainer(DockerImageName.parse(RedisDefaults.DOCKER_IMAGE_NAME))
-        .withExposedPorts(6379)
+            .withExposedPorts(6379)
 }
