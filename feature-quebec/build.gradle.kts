@@ -7,6 +7,7 @@ dependencies {
     implementation(project(":infra-shared"))
     implementation(project(":infra-rabbitmq"))
 
+    implementation("org.springframework.boot:spring-boot-starter-amqp")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

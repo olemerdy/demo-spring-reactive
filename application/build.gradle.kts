@@ -9,7 +9,6 @@ dependencies {
     implementation(project(":infra-shared"))
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-amqp")
     implementation("org.springframework.boot:spring-boot-starter-data-cassandra-reactive")
     implementation("org.springframework.boot:spring-boot-starter-data-couchbase-reactive")
     implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
