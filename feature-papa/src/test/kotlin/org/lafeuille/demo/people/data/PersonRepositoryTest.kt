@@ -2,17 +2,17 @@ package org.lafeuille.demo.people.data
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.infra.r2dbc.R2dbcContainerTestConfiguration
+import org.lafeuille.demo.infra.postgresql.PostgresqlContainerTestConfiguration
 import org.lafeuille.demo.people.domain.PersonFixtures
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest
+import org.springframework.boot.data.r2dbc.test.autoconfigure.DataR2dbcTest
 import org.springframework.context.annotation.Import
 import org.springframework.data.domain.Pageable
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate
 import reactor.kotlin.test.test
 
 @DataR2dbcTest
-@Import(R2dbcContainerTestConfiguration::class)
+@Import(PostgresqlContainerTestConfiguration::class)
 class PersonRepositoryTest(
     @Autowired private val template: R2dbcEntityTemplate,
     @Autowired private val repository: PersonRepository,
