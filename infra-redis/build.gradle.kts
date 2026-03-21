@@ -7,4 +7,5 @@ dependencies {
     testFixturesApi("org.springframework.boot:spring-boot-starter-test")
     testFixturesApi("org.springframework.boot:spring-boot-testcontainers")
     testFixturesApi("org.testcontainers:testcontainers-junit-jupiter")
+    testFixturesApi("com.redis:testcontainers-redis")
 }
