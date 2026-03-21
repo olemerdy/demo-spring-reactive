@@ -4,11 +4,10 @@ import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.springframework.context.annotation.Bean
 import org.testcontainers.cassandra.CassandraContainer
-import org.testcontainers.utility.DockerImageName
 
 @TestConfiguration(proxyBeanMethods = false)
 class CassandraContainerTestConfiguration {
     @Bean
     @ServiceConnection
-    fun cassandraContainer(): CassandraContainer = CassandraContainer(DockerImageName.parse(CassandraDefaults.DOCKER_IMAGE_NAME))
+    fun cassandraContainer(): CassandraContainer = CassandraContainer(CassandraDefaults.DOCKER_IMAGE_NAME)
 }
