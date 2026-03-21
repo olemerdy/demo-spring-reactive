@@ -9,5 +9,5 @@ import org.testcontainers.kafka.KafkaContainer
 class KafkaContainerTestConfiguration {
     @Bean
     @ServiceConnection
-    fun cassandraContainer(): KafkaContainer = KafkaContainer(KafkaDefaults.DOCKER_IMAGE_NAME)
+    fun kafkaContainer(): KafkaContainer = KafkaContainer(KafkaDefaults.DOCKER_IMAGE_NAME)
 }

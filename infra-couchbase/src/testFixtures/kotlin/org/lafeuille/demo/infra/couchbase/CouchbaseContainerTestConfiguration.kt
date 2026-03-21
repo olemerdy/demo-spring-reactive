@@ -9,5 +9,5 @@ import org.testcontainers.couchbase.CouchbaseContainer
 class CouchbaseContainerTestConfiguration {
     @Bean
     @ServiceConnection
-    fun cassandraContainer(): CouchbaseContainer = CouchbaseContainer(CouchbaseDefaults.DOCKER_IMAGE_NAME)
+    fun couchbaseContainer(): CouchbaseContainer = CouchbaseContainer(CouchbaseDefaults.DOCKER_IMAGE_NAME)
 }
