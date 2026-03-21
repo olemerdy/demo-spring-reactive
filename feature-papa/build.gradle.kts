@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation(project(":infra-shared"))
     implementation(project(":infra-r2dbc"))
+    implementation(project(":infra-postgresql"))
 
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -20,8 +21,11 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.postgresql:r2dbc-postgresql")
 
+    testImplementation(testFixtures(project(":infra-r2dbc")))
     testImplementation(testFixtures(project(":infra-postgresql")))
 
+    testImplementation("org.springframework.boot:spring-boot-starter-data-r2dbc-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.mockito.kotlin:mockito-kotlin")
 }
