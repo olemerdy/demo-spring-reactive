@@ -5,6 +5,12 @@ plugins {
 
 dependencies {
     implementation(project(":infra-shared"))
+
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+
+    testImplementation(project(":infra-postgresql"))
+
+    testImplementation("org.springframework.boot:spring-boot-starter-data-r2dbc-test")
+
     testFixturesApi("org.testcontainers:testcontainers-r2dbc")
 }

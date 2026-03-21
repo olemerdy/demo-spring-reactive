@@ -4,8 +4,12 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":infra-shared"))
+
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
     testImplementation("org.springframework.boot:spring-boot-starter-data-redis-test")
+
     testFixturesApi("org.springframework.boot:spring-boot-starter-test")
     testFixturesApi("org.springframework.boot:spring-boot-testcontainers")
     testFixturesApi("org.testcontainers:testcontainers-junit-jupiter")
