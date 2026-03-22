@@ -1,0 +1,5 @@
+---
+spring:
+  data:
+    couchbase:
+      bucket-name: "test"
