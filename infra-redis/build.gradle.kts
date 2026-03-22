@@ -10,6 +10,7 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-data-redis-test")
     testImplementation("io.projectreactor:reactor-test")
+    testImplementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 
     testFixturesApi("org.springframework.boot:spring-boot-starter-test")
     testFixturesApi("org.springframework.boot:spring-boot-testcontainers")
