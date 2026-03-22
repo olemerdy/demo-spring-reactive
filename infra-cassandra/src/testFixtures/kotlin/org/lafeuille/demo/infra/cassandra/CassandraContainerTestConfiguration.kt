@@ -9,5 +9,7 @@ import org.testcontainers.cassandra.CassandraContainer
 class CassandraContainerTestConfiguration {
     @Bean
     @ServiceConnection
-    fun cassandraContainer(): CassandraContainer = CassandraContainer(CassandraDefaults.DOCKER_IMAGE_NAME)
+    fun cassandraContainer(): CassandraContainer =
+        CassandraContainer(CassandraDefaults.DOCKER_IMAGE_NAME)
+            .withInitScript("init.cql")
 }
