@@ -3,5 +3,5 @@ CREATE
         samples(
             id UUID PRIMARY KEY,
             value DOUBLE PRECISION,
-            timestamp TIMESTAMPTZ
+            TIMESTAMP TIMESTAMPTZ
         );
