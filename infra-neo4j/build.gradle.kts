@@ -9,6 +9,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-neo4j")
 
     testImplementation("org.springframework.boot:spring-boot-starter-data-neo4j-test")
+    testImplementation("io.projectreactor:reactor-test")
+    testImplementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 
     testFixturesApi("org.springframework.boot:spring-boot-starter-test")
     testFixturesApi("org.springframework.boot:spring-boot-testcontainers")
