@@ -49,6 +49,10 @@ spotless {
     kotlinGradle {
         ktlint()
     }
+    sql {
+        target("src/**/*.sql")
+        dbeaver()
+    }
     yaml {
         target("src/**/*.yml")
         jackson()
