@@ -35,7 +35,7 @@ class InfraR2dbcTest(
                 id = UUID.fromString("7d3bb7ac-b5c1-4efd-b672-af52c43a98fb"),
                 value = 123.0,
                 timestamp =
-                    LocalDateTime.of(2026, Month.MARCH, 26, 13, 0).toInstant(ZoneOffset.UTC),
+                    LocalDateTime.of(2026, Month.MARCH, 26, 14, 0).toInstant(ZoneOffset.UTC),
             )
         entityTemplate
             .select(SampleData::class.java)
