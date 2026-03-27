@@ -8,6 +8,8 @@ import org.springframework.data.neo4j.core.ReactiveNeo4jTemplate
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import reactor.kotlin.test.test
+import java.time.Instant
+import java.util.UUID
 
 @Import(value = [Neo4jContainerTestConfiguration::class, InfraDataReactiveNeo4jConfiguration::class])
 @DataNeo4jTest
@@ -17,13 +19,11 @@ class InfraNeo4jTest(
 ) {
     @Test
     fun test() {
-        val movie = Movie("The Matrix")
-        val neo = Person("Keanu Reeves", 1964, listOf(movie))
-
+        val data = SampleData(id = UUID.randomUUID(), value = 123.0, timestamp = Instant.EPOCH)
         neo4jTemplate
-            .save(neo)
+            .save(data)
             .test()
-            .expectNext(neo)
+            .expectNext(data)
             .verifyComplete()
     }
 }
