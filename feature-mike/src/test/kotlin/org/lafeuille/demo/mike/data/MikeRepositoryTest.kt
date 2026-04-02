@@ -1,4 +1,4 @@
-package org.lafeuille.demo.stores.data
+package org.lafeuille.demo.mike.data
 
 import org.junit.jupiter.api.Test
 import org.lafeuille.demo.infra.mongo.MongoContainerTestConfiguration
@@ -9,8 +9,8 @@ import reactor.kotlin.test.test
 
 @Import(MongoContainerTestConfiguration::class)
 @DataMongoTest
-class StoreRepositoryTest(
-    @Autowired private val repository: StoreRepository,
+class MikeRepositoryTest(
+    @Autowired private val repository: MikeRepository,
 ) {
     @Test
     fun test() {

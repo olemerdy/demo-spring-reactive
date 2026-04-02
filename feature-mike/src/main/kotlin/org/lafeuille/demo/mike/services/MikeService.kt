@@ -1,8 +1,8 @@
-package org.lafeuille.demo.stores.services
+package org.lafeuille.demo.mike.services
 
-import org.lafeuille.demo.stores.data.Store
-import org.lafeuille.demo.stores.data.StoreRepository
-import org.lafeuille.demo.stores.domain.StoreResponse
+import org.lafeuille.demo.mike.data.Mike
+import org.lafeuille.demo.mike.data.MikeRepository
+import org.lafeuille.demo.mike.domain.MikeResponse
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
@@ -11,19 +11,19 @@ import reactor.core.publisher.Mono
 import java.util.UUID
 
 @Service
-class StoreService(
-    private val repository: StoreRepository,
+class MikeService(
+    private val repository: MikeRepository,
 ) {
-    fun getStores(pageable: Pageable): Mono<Page<StoreResponse>> =
+    fun getMikes(pageable: Pageable): Mono<Page<MikeResponse>> =
         Mono.zip(
             repository.count(),
             repository.findBy(pageable).collectList(),
-        ) { count: Long, list: List<Store> ->
+        ) { count: Long, list: List<Mike> ->
             PageImpl(list, pageable, count)
                 .map { it.toResponse() }
         }
 
-    fun getStore(id: UUID): Mono<StoreResponse> =
+    fun getMike(id: UUID): Mono<MikeResponse> =
         repository
             .findById(id)
             .map { it.toResponse() }

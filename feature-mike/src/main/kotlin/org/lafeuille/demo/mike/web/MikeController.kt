@@ -1,7 +1,7 @@
-package org.lafeuille.demo.stores.web
+package org.lafeuille.demo.mike.web
 
-import org.lafeuille.demo.stores.domain.StoreResponse
-import org.lafeuille.demo.stores.services.StoreService
+import org.lafeuille.demo.mike.domain.MikeResponse
+import org.lafeuille.demo.mike.services.MikeService
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PagedModel
 import org.springframework.http.ResponseEntity
@@ -13,19 +13,19 @@ import reactor.core.publisher.Mono
 import java.util.UUID
 
 @RestController
-@RequestMapping("api/v1/stores")
-class StoresController(
-    private val service: StoreService,
+@RequestMapping("api/mikes")
+class MikeController(
+    private val service: MikeService,
 ) {
     @GetMapping
-    fun readStores(pageable: Pageable): Mono<PagedModel<StoreResponse>> = service.getStores(pageable).map { PagedModel(it) }
+    fun readMikes(pageable: Pageable): Mono<PagedModel<MikeResponse>> = service.getMikes(pageable).map { PagedModel(it) }
 
     @GetMapping("{id}")
-    fun readStore(
+    fun readMike(
         @PathVariable id: UUID,
-    ): Mono<ResponseEntity<StoreResponse>> =
+    ): Mono<ResponseEntity<MikeResponse>> =
         service
-            .getStore(id)
+            .getMike(id)
             .map { ResponseEntity.ok(it) }
             .defaultIfEmpty(ResponseEntity.notFound().build())
 }

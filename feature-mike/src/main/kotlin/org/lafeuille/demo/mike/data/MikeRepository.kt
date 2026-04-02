@@ -1,10 +1,10 @@
-package org.lafeuille.demo.stores.data
+package org.lafeuille.demo.mike.data
 
 import org.springframework.data.domain.Pageable
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository
 import reactor.core.publisher.Flux
 import java.util.UUID
 
-interface StoreRepository : ReactiveMongoRepository<Store, UUID> {
-    fun findBy(pageable: Pageable): Flux<Store>
+interface MikeRepository : ReactiveMongoRepository<Mike, UUID> {
+    fun findBy(pageable: Pageable): Flux<Mike>
 }

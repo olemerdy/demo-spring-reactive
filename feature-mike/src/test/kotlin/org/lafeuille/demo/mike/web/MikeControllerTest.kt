@@ -1,9 +1,8 @@
-package org.lafeuille.demo.stores.web
+package org.lafeuille.demo.mike.web
 
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.stores.domain.StoreFixtures
-import org.lafeuille.demo.stores.domain.StoreFixtures.defaultStoreResponse
-import org.lafeuille.demo.stores.services.StoreService
+import org.lafeuille.demo.mike.domain.MikeFixtures
+import org.lafeuille.demo.mike.services.MikeService
 import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,22 +15,22 @@ import reactor.core.publisher.Mono
 import java.util.UUID
 
 @WebFluxTest
-class StoresControllerTest(
+class MikeControllerTest(
     @Autowired private val client: WebTestClient,
 ) {
     @MockitoBean
-    private lateinit var service: StoreService
+    private lateinit var service: MikeService
 
     @Test
-    fun readStores_OK() {
+    fun readMikes_OK() {
         val pageRequest = PageRequest.of(0, 20)
 
-        whenever(service.getStores(pageRequest))
+        whenever(service.getMikes(pageRequest))
             .thenReturn(Mono.just(PageImpl(listOf(), pageRequest, 0)))
 
         client
             .get()
-            .uri("/api/v1/stores")
+            .uri("/api/mikes")
             .exchange()
             .expectStatus()
             .isOk
@@ -47,35 +46,35 @@ class StoresControllerTest(
     }
 
     @Test
-    fun readStore_OK() {
-        whenever(service.getStore(any()))
-            .thenReturn(Mono.just(defaultStoreResponse()))
+    fun readMike_OK() {
+        whenever(service.getMike(any()))
+            .thenReturn(Mono.just(MikeFixtures.defaultMikeResponse()))
 
         client
             .get()
-            .uri("/api/v1/stores/{id}", StoreFixtures.ID)
+            .uri("/api/mikes/{id}", MikeFixtures.ID)
             .exchange()
             .expectStatus()
             .isOk
             .expectBody()
             .jsonPath("id")
-            .isEqualTo(StoreFixtures.ID_STRING)
+            .isEqualTo(MikeFixtures.ID_STRING)
             .jsonPath("name")
-            .isEqualTo(StoreFixtures.NAME)
+            .isEqualTo(MikeFixtures.NAME)
             .jsonPath("location.x")
-            .isEqualTo(StoreFixtures.LOCATION_X)
+            .isEqualTo(MikeFixtures.LOCATION_X)
             .jsonPath("location.y")
-            .isEqualTo(StoreFixtures.LOCATION_Y)
+            .isEqualTo(MikeFixtures.LOCATION_Y)
     }
 
     @Test
-    fun readStore_NOT_FOUND() {
-        whenever(service.getStore(any()))
+    fun readMike_NOT_FOUND() {
+        whenever(service.getMike(any()))
             .thenReturn(Mono.empty())
 
         client
             .get()
-            .uri("/api/v1/stores/{id}", UUID.randomUUID())
+            .uri("/api/mikes/{id}", UUID.randomUUID())
             .exchange()
             .expectStatus()
             .isNotFound
