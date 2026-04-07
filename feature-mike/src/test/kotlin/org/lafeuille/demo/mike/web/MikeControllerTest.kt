@@ -1,8 +1,9 @@
 package org.lafeuille.demo.mike.web
 
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.mike.domain.MikeFixtures
+import org.lafeuille.demo.mike.data.MikeFixtures
 import org.lafeuille.demo.mike.services.MikeService
+import org.lafeuille.demo.mike.services.toResponse
 import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 import org.springframework.beans.factory.annotation.Autowired
@@ -48,7 +49,7 @@ class MikeControllerTest(
     @Test
     fun readMike_OK() {
         whenever(service.getMike(any()))
-            .thenReturn(Mono.just(MikeFixtures.defaultMikeResponse()))
+            .thenReturn(Mono.just(MikeFixtures.defaultMike().toResponse()))
 
         client
             .get()

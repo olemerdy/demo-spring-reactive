@@ -2,7 +2,6 @@ package org.lafeuille.demo.mike.data
 
 import org.junit.jupiter.api.Test
 import org.lafeuille.demo.infra.mongo.MongoContainerTestConfiguration
-import org.lafeuille.demo.mike.domain.MikeFixtures
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.data.mongodb.test.autoconfigure.DataMongoTest
 import org.springframework.context.annotation.Import

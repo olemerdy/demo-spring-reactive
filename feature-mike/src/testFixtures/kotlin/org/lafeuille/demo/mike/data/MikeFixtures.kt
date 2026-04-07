@@ -1,6 +1,5 @@
-package org.lafeuille.demo.mike.domain
+package org.lafeuille.demo.mike.data
 
-import org.lafeuille.demo.mike.data.Mike
 import org.springframework.data.geo.Point
 import java.time.Duration
 import java.time.Period
@@ -33,6 +32,4 @@ object MikeFixtures {
             period = PERIOD,
             location = LOCATION,
         )
-
-    fun defaultMikeResponse() = MikeResponse(id = ID, name = NAME, location = LOCATION)
 }
