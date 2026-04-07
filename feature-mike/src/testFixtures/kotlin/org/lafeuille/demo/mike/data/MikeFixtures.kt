@@ -1,7 +1,9 @@
 package org.lafeuille.demo.mike.data
 
 import org.springframework.data.geo.Point
+import java.net.URI
 import java.time.Duration
+import java.time.Month
 import java.time.Period
 import java.util.Currency
 import java.util.Locale
@@ -17,10 +19,14 @@ object MikeFixtures {
 
     val DURATION: Duration by lazy { Duration.ofDays(1).plusHours(6).plusMinutes(30) }
     val PERIOD: Period by lazy { Period.ofYears(1).plusMonths(2).plusDays(3) }
+    val MONTH = Month.JANUARY
 
     const val LOCATION_X: Double = 123.0
     const val LOCATION_Y: Double = 456.0
     val LOCATION: Point by lazy { Point(LOCATION_X, LOCATION_Y) }
+
+    const val URI_STRING = "https:lafeuille.org"
+    val URI_OBJECT: URI by lazy { URI.create(URI_STRING) }
 
     fun defaultMike() =
         Mike(
@@ -30,6 +36,8 @@ object MikeFixtures {
             currency = CURRENCY,
             duration = DURATION,
             period = PERIOD,
+            month = MONTH,
             location = LOCATION,
+            uri = URI_OBJECT,
         )
 }

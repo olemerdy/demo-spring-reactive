@@ -27,4 +27,6 @@ class MikeService(
         repository
             .findById(id)
             .map { it.toResponse() }
+
+    fun deleteMike(id: UUID): Mono<Void> = repository.deleteById(id)
 }
