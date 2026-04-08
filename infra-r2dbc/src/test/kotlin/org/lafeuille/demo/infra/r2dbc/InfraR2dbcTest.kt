@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.data.r2dbc.test.autoconfigure.DataR2dbcTest
 import org.springframework.context.annotation.Import
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate
+import org.springframework.data.r2dbc.core.select
 import reactor.kotlin.test.test
 import java.time.Instant
 import java.time.LocalDateTime
@@ -38,7 +39,7 @@ class InfraR2dbcTest(
                     LocalDateTime.of(2026, Month.MARCH, 26, 14, 0).toInstant(ZoneOffset.UTC),
             )
         entityTemplate
-            .select(SampleData::class.java)
+            .select<SampleData>()
             .all()
             .test()
             .expectNext(data)
