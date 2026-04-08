@@ -7,7 +7,7 @@ import java.util.UUID
 
 @Document(collection = "samples")
 data class SampleData(
-    @Id val id: UUID,
+    @Id val id: UUID = UUID.randomUUID(),
     val value: Double,
     val timestamp: Instant,
 )

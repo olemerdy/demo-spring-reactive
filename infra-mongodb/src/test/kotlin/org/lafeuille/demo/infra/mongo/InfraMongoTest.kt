@@ -1,13 +1,13 @@
 package org.lafeuille.demo.infra.mongo
 
 import org.junit.jupiter.api.Test
+import org.lafeuille.demo.data.SampleDataFixtures
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.data.mongodb.test.autoconfigure.DataMongoTest
 import org.springframework.context.annotation.Import
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate
+import org.springframework.data.mongodb.core.findById
 import reactor.kotlin.test.test
-import java.time.Instant
-import java.util.UUID
 
 @Import(MongoContainerTestConfiguration::class)
 @DataMongoTest
@@ -16,9 +16,10 @@ class InfraMongoTest(
 ) {
     @Test
     fun test() {
-        val data = SampleData(id = UUID.randomUUID(), value = 123.0, timestamp = Instant.EPOCH)
+        val data = SampleData(id = SampleDataFixtures.ID, value = SampleDataFixtures.VALUE, timestamp = SampleDataFixtures.INSTANT)
         mongoTemplate
             .save(data)
+            .then(mongoTemplate.findById<SampleData>(SampleDataFixtures.ID))
             .test()
             .expectNext(data)
             .verifyComplete()

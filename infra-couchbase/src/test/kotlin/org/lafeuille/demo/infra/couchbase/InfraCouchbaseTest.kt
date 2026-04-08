@@ -1,6 +1,7 @@
 package org.lafeuille.demo.infra.couchbase
 
 import org.junit.jupiter.api.Test
+import org.lafeuille.demo.data.SampleDataFixtures
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration
 import org.springframework.boot.data.couchbase.autoconfigure.DataCouchbaseReactiveAutoConfiguration
@@ -8,8 +9,6 @@ import org.springframework.boot.data.couchbase.test.autoconfigure.DataCouchbaseT
 import org.springframework.context.annotation.Import
 import org.springframework.data.couchbase.core.ReactiveCouchbaseTemplate
 import reactor.kotlin.test.test
-import java.time.Instant
-import java.util.UUID
 
 @Import(CouchbaseContainerTestConfiguration::class)
 @DataCouchbaseTest
@@ -19,14 +18,14 @@ class InfraCouchbaseTest(
 ) {
     @Test
     fun test() {
-        val data = SampleData(id = UUID.randomUUID(), value = 123.0, timestamp = Instant.EPOCH)
+        val data = SampleData(id = SampleDataFixtures.ID, value = SampleDataFixtures.VALUE, timestamp = SampleDataFixtures.INSTANT)
         couchbaseTemplate
             .insertById(SampleData::class.java)
             .one(data)
             .then(
                 couchbaseTemplate
                     .findById(SampleData::class.java)
-                    .one(data.id),
+                    .one(SampleDataFixtures.ID_STRING),
             ).test()
             .expectNext(data)
             .verifyComplete()

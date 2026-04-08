@@ -10,4 +10,8 @@ data class SampleData(
     @Id val id: UUID,
     val value: Double,
     val timestamp: Instant,
-)
+) {
+    object ColumnNames {
+        const val ID = "id"
+    }
+}

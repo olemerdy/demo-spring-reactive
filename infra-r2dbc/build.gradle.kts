@@ -10,6 +10,7 @@ dependencies {
 
     testImplementation(project(":infra-postgresql"))
     testImplementation(testFixtures(project(":infra-postgresql")))
+    testImplementation(testFixtures(project(":infra-shared")))
 
     testImplementation("org.springframework.boot:spring-boot-starter-data-r2dbc-test")
     testImplementation("io.projectreactor:reactor-test")

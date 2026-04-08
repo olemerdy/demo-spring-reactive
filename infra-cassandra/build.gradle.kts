@@ -8,6 +8,8 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-data-cassandra")
 
+    testImplementation(testFixtures(project(":infra-shared")))
+
     testImplementation("org.springframework.boot:spring-boot-starter-data-cassandra-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("io.projectreactor.kotlin:reactor-kotlin-extensions")

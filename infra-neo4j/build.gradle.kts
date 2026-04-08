@@ -8,6 +8,8 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-data-neo4j")
 
+    testImplementation(testFixtures(project(":infra-shared")))
+
     testImplementation("org.springframework.boot:spring-boot-starter-data-neo4j-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
