@@ -7,7 +7,7 @@ import java.util.UUID
 
 @Node
 data class SampleData(
-    @Id val id: UUID,
+    @Id val id: UUID = UUID.randomUUID(),
     val value: Double,
     val timestamp: Instant,
 )

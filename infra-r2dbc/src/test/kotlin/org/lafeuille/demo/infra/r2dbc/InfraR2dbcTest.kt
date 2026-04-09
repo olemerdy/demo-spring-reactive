@@ -13,7 +13,6 @@ import org.springframework.data.relational.core.query.Criteria.where
 import org.springframework.data.relational.core.query.Query.query
 import reactor.kotlin.test.test
 import java.time.Instant
-import java.util.UUID
 
 @Import(PostgresqlContainerTestConfiguration::class)
 @DataR2dbcTest
@@ -22,7 +21,7 @@ class InfraR2dbcTest(
 ) {
     @Test
     fun testInsert() {
-        val data = SampleData(id = UUID.randomUUID(), value = SampleDataFixtures.VALUE, timestamp = Instant.EPOCH)
+        val data = SampleData(value = SampleDataFixtures.VALUE, timestamp = Instant.EPOCH)
         entityTemplate
             .insert(data)
             .then(

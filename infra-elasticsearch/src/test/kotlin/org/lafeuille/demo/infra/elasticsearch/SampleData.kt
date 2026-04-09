@@ -9,7 +9,7 @@ import java.util.UUID
 
 @Document(indexName = "samples")
 data class SampleData(
-    @Id val id: UUID,
+    @Id val id: UUID = UUID.randomUUID(),
     @Field(type = FieldType.Double) val value: Double,
     @Field(type = FieldType.Date) val timestamp: Instant,
 )
