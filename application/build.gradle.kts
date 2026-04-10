@@ -7,6 +7,14 @@ plugins {
 
 dependencies {
     implementation(project(":infra-shared"))
+    implementation(project(":feature-charlie"))
+    implementation(project(":feature-echo"))
+    implementation(project(":feature-mike"))
+    implementation(project(":feature-november"))
+    implementation(project(":feature-papa"))
+    implementation(project(":feature-quebec"))
+    implementation(project(":feature-romeo"))
+    implementation(project(":feature-sierra"))
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     // implementation("org.springframework.boot:spring-boot-starter-data-cassandra-reactive")
@@ -32,7 +40,15 @@ dependencies {
     // runtimeOnly("org.springframework.modulith:spring-modulith-events-amqp")
     // runtimeOnly("org.springframework.modulith:spring-modulith-observability")
 
+    testImplementation(testFixtures(project(":infra-cassandra")))
+    testImplementation(testFixtures(project(":infra-couchbase")))
+    testImplementation(testFixtures(project(":infra-elasticsearch")))
     testImplementation(testFixtures(project(":infra-mongodb")))
+    testImplementation(testFixtures(project(":infra-neo4j")))
+    testImplementation(testFixtures(project(":infra-postgresql")))
+    testImplementation(testFixtures(project(":infra-r2dbc")))
+    testImplementation(testFixtures(project(":infra-rabbitmq")))
+    testImplementation(testFixtures(project(":infra-redis")))
     // testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")
     // testImplementation("org.springframework.boot:spring-boot-starter-amqp-test")
     // testImplementation("org.springframework.boot:spring-boot-starter-data-cassandra-reactive-test")
