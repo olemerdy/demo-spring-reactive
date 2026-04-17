@@ -1,4 +1,4 @@
-package org.lafeuille.demo.contents.data
+package org.lafeuille.demo.echo.data
 
 import org.hibernate.validator.constraints.ISBN
 import org.springframework.data.annotation.CreatedDate
@@ -8,8 +8,8 @@ import org.springframework.data.annotation.Version
 import org.springframework.data.elasticsearch.annotations.Document
 import java.time.Instant
 
-@Document(indexName = "entities")
-data class BookContent(
+@Document(indexName = "echoes")
+data class Echo(
     @Id @ISBN(type = ISBN.Type.ANY) val isbn: String,
     @CreatedDate val createdDate: Instant? = null,
     @LastModifiedDate val lastModifiedDate: Instant? = null,

@@ -1,9 +1,9 @@
-package org.lafeuille.demo.contents.data
+package org.lafeuille.demo.echo.data
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.contents.domain.BookContentFixtures
+import org.lafeuille.demo.echo.domain.EchoFixtures
 import org.lafeuille.demo.infra.elasticsearch.ElasticsearchContainerTestConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.data.elasticsearch.test.autoconfigure.DataElasticsearchTest
@@ -13,8 +13,8 @@ import reactor.kotlin.test.test
 
 @Import(ElasticsearchContainerTestConfiguration::class)
 @DataElasticsearchTest
-class BookContentRepositoryTest(
-    @Autowired private val repository: BookContentRepository,
+class EchoRepositoryTest(
+    @Autowired private val repository: EchoRepository,
     @Autowired private val elasticsearchTemplate: ReactiveElasticsearchTemplate,
 ) {
     @BeforeEach
@@ -27,15 +27,15 @@ class BookContentRepositoryTest(
 
     @Test
     fun test() {
-        val bookContent = BookContent(BookContentFixtures.ISBN13)
+        val echo = Echo(EchoFixtures.ISBN13)
         repository
-            .save(bookContent)
+            .save(echo)
             .then(
-                elasticsearchTemplate.get(BookContentFixtures.ISBN13, BookContent::class.java),
+                elasticsearchTemplate.get(EchoFixtures.ISBN13, Echo::class.java),
             ).test()
             .assertNext {
                 assertThat(it).isNotNull
-                assertThat(it.isbn).isEqualTo(BookContentFixtures.ISBN13)
+                assertThat(it.isbn).isEqualTo(EchoFixtures.ISBN13)
                 assertThat(it.version).isEqualTo(1)
             }.verifyComplete()
     }
