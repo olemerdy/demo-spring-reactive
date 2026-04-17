@@ -1,6 +1,6 @@
 CREATE
     TABLE
-        IF NOT EXISTS person(
+        IF NOT EXISTS papa(
             id UUID NOT NULL,
             name VARCHAR(256) NOT NULL,
             birth_date DATE,

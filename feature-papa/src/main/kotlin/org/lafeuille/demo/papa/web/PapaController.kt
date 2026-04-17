@@ -1,7 +1,7 @@
-package org.lafeuille.demo.people.web
+package org.lafeuille.demo.papa.web
 
-import org.lafeuille.demo.people.domain.PersonResponse
-import org.lafeuille.demo.people.services.PersonService
+import org.lafeuille.demo.papa.domain.PapaResponse
+import org.lafeuille.demo.papa.services.PapaService
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PagedModel
 import org.springframework.http.HttpStatus
@@ -16,25 +16,25 @@ import reactor.core.publisher.Mono
 import java.util.UUID
 
 @RestController
-@RequestMapping("api/v1/people")
-class PeopleController(
-    private val service: PersonService,
+@RequestMapping("api/papas")
+class PapaController(
+    private val service: PapaService,
 ) {
     @GetMapping
-    fun readPeople(pageable: Pageable): Mono<PagedModel<PersonResponse>> = service.getPeople(pageable).map { PagedModel(it) }
+    fun readPapas(pageable: Pageable): Mono<PagedModel<PapaResponse>> = service.getPapas(pageable).map { PagedModel(it) }
 
     @GetMapping("{id}")
-    fun readPerson(
+    fun readPapa(
         @PathVariable id: UUID,
-    ): Mono<ResponseEntity<PersonResponse>> =
+    ): Mono<ResponseEntity<PapaResponse>> =
         service
-            .getPerson(id)
+            .getPapa(id)
             .map { ResponseEntity.ok(it) }
             .defaultIfEmpty(ResponseEntity.notFound().build())
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun deletePerson(
+    fun deletePapa(
         @PathVariable id: UUID,
-    ): Mono<Unit> = service.deletePerson(id)
+    ): Mono<Unit> = service.deletePapa(id)
 }

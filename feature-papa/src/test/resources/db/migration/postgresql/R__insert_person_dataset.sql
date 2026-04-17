@@ -1,6 +1,6 @@
 INSERT
     INTO
-        person(
+        papa(
             id,
             name,
             birth_date,

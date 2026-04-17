@@ -1,10 +1,10 @@
-package org.lafeuille.demo.people.domain
+package org.lafeuille.demo.papa.domain
 
 import java.time.LocalDate
 import java.time.Month
 import java.util.UUID
 
-object PersonFixtures {
+object PapaFixtures {
     const val ID_STRING = "e1c47fc3-472d-4c14-8d7a-c1b4d1dbdfe5"
     val ID: UUID by lazy { UUID.fromString(ID_STRING) }
 

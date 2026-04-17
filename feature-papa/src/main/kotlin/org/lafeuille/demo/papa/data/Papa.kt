@@ -1,4 +1,4 @@
-package org.lafeuille.demo.people.data
+package org.lafeuille.demo.papa.data
 
 import jakarta.validation.constraints.NotNull
 import org.springframework.data.annotation.CreatedDate
@@ -9,7 +9,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.util.UUID
 
-data class Person(
+data class Papa(
     @Id val id: UUID = UUID.randomUUID(),
     @field:NotNull val name: String,
     @field:NotNull val birthDate: LocalDate,

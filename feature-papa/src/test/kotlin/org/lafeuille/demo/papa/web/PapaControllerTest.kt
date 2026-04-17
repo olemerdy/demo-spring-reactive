@@ -1,9 +1,9 @@
-package org.lafeuille.demo.people.web
+package org.lafeuille.demo.papa.web
 
 import org.junit.jupiter.api.Test
-import org.lafeuille.demo.people.domain.PersonFixtures
-import org.lafeuille.demo.people.domain.PersonResponse
-import org.lafeuille.demo.people.services.PersonService
+import org.lafeuille.demo.papa.domain.PapaFixtures
+import org.lafeuille.demo.papa.domain.PapaResponse
+import org.lafeuille.demo.papa.services.PapaService
 import org.mockito.kotlin.any
 import org.mockito.kotlin.whenever
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,22 +16,22 @@ import reactor.core.publisher.Mono
 import java.util.UUID
 
 @WebFluxTest
-class PeopleControllerTest(
+class PapaControllerTest(
     @Autowired private val client: WebTestClient,
 ) {
     @MockitoBean
-    private lateinit var service: PersonService
+    private lateinit var service: PapaService
 
     @Test
-    fun readPeople_OK() {
+    fun readPapas_OK() {
         val pageRequest = PageRequest.of(0, 20)
 
-        whenever(service.getPeople(pageRequest))
+        whenever(service.getPapas(pageRequest))
             .thenReturn(Mono.just(PageImpl(listOf(), pageRequest, 0)))
 
         client
             .get()
-            .uri("/api/v1/people")
+            .uri("/api/papas")
             .exchange()
             .expectStatus()
             .isOk
@@ -47,54 +47,54 @@ class PeopleControllerTest(
     }
 
     @Test
-    fun readPerson_OK() {
-        whenever(service.getPerson(any()))
+    fun readPapa_OK() {
+        whenever(service.getPapa(any()))
             .thenReturn(
                 Mono.just(
-                    PersonResponse(
-                        id = PersonFixtures.ID,
-                        name = PersonFixtures.NAME,
-                        birthDate = PersonFixtures.BIRTH_DATE,
+                    PapaResponse(
+                        id = PapaFixtures.ID,
+                        name = PapaFixtures.NAME,
+                        birthDate = PapaFixtures.BIRTH_DATE,
                     ),
                 ),
             )
 
         client
             .get()
-            .uri("/api/v1/people/{id}", PersonFixtures.ID)
+            .uri("/api/papas/{id}", PapaFixtures.ID)
             .exchange()
             .expectStatus()
             .isOk
             .expectBody()
             .jsonPath("id")
-            .isEqualTo(PersonFixtures.ID_STRING)
+            .isEqualTo(PapaFixtures.ID_STRING)
             .jsonPath("name")
-            .isEqualTo(PersonFixtures.NAME)
+            .isEqualTo(PapaFixtures.NAME)
             .jsonPath("birthDate")
-            .isEqualTo(PersonFixtures.BIRTH_DATE.toString())
+            .isEqualTo(PapaFixtures.BIRTH_DATE.toString())
     }
 
     @Test
-    fun readPerson_NOT_FOUND() {
-        whenever(service.getPerson(any()))
+    fun readPapa_NOT_FOUND() {
+        whenever(service.getPapa(any()))
             .thenReturn(Mono.empty())
 
         client
             .get()
-            .uri("/api/v1/people/{id}", UUID.randomUUID())
+            .uri("/api/papas/{id}", UUID.randomUUID())
             .exchange()
             .expectStatus()
             .isNotFound
     }
 
     @Test
-    fun deletePerson() {
-        whenever(service.deletePerson(any()))
+    fun deletePapa() {
+        whenever(service.deletePapa(any()))
             .thenReturn(Mono.empty())
 
         client
             .delete()
-            .uri("/api/v1/people/{id}", UUID.randomUUID())
+            .uri("/api/papas/{id}", UUID.randomUUID())
             .exchange()
             .expectStatus()
             .isNoContent

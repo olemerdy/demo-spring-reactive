@@ -1,8 +1,8 @@
-package org.lafeuille.demo.people.services
+package org.lafeuille.demo.papa.services
 
-import org.lafeuille.demo.people.data.Person
-import org.lafeuille.demo.people.data.PersonRepository
-import org.lafeuille.demo.people.domain.PersonResponse
+import org.lafeuille.demo.papa.data.Papa
+import org.lafeuille.demo.papa.data.PapaRepository
+import org.lafeuille.demo.papa.domain.PapaResponse
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
@@ -13,23 +13,23 @@ import reactor.kotlin.core.publisher.cast
 import java.util.UUID
 
 @Service
-class PersonService(
-    private val repository: PersonRepository,
+class PapaService(
+    private val repository: PapaRepository,
 ) {
-    fun getPeople(pageable: Pageable): Mono<Page<PersonResponse>> =
+    fun getPapas(pageable: Pageable): Mono<Page<PapaResponse>> =
         Mono.zip(
             repository.count(),
             repository.findBy(pageable).collectList(),
-        ) { count: Long, list: List<Person> ->
+        ) { count: Long, list: List<Papa> ->
             PageImpl(list, pageable, count)
                 .map { it.toResponse() }
         }
 
-    fun getPerson(id: UUID): Mono<PersonResponse> =
+    fun getPapa(id: UUID): Mono<PapaResponse> =
         repository
             .findById(id)
             .map { it.toResponse() }
 
     @Transactional
-    fun deletePerson(id: UUID): Mono<Unit> = repository.deleteById(id).cast()
+    fun deletePapa(id: UUID): Mono<Unit> = repository.deleteById(id).cast()
 }
