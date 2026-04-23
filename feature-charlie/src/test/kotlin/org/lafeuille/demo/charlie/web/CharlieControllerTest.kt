@@ -63,7 +63,7 @@ class CharlieControllerTest(
     }
 
     @Test
-    fun readMike_NOT_FOUND() {
+    fun readCharlie_NOT_FOUND() {
         whenever(service.getCharlie(any()))
             .thenReturn(Mono.empty())
 
