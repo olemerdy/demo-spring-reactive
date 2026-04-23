@@ -16,7 +16,9 @@ dependencies {
 
     testImplementation(testFixtures(project(":infra-couchbase")))
 
+    testImplementation("io.projectreactor:reactor-test")
+    testImplementation("org.mockito.kotlin:mockito-kotlin")
     testImplementation("org.springframework.boot:spring-boot-starter-data-couchbase-test")
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("io.projectreactor:reactor-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
 }
