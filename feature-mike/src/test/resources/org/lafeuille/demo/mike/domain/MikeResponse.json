@@ -1,11 +1,11 @@
 {
   "id": "ed41a7d0-1f7e-4f92-a91f-b6fe99384f3f",
   "name": "Mickey",
-  "locale": "fr_FR",
+  "locale": "fr-FR",
   "currency": "EUR",
-  "duration": "PT1D6H6M",
+  "duration": "PT30H30M",
   "period": "P1Y2M3D",
-  "month": "JANUARY",
+  "month": 1,
   "location": {
     "x": 123.0,
     "y": 456.0

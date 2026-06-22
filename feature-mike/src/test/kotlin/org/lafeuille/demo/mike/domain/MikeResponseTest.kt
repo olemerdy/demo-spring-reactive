@@ -7,9 +7,12 @@ import org.lafeuille.demo.mike.services.toResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.json.JsonTest
 import org.springframework.boot.test.json.JacksonTester
+import org.springframework.context.annotation.Import
+import org.springframework.data.web.config.SpringDataJackson3Configuration
 import java.io.IOException
 
 @JsonTest
+@Import(SpringDataJackson3Configuration::class)
 class MikeResponseTest(
     @Autowired private val jacksonTester: JacksonTester<MikeResponse>,
 ) {
