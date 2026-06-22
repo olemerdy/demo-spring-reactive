@@ -13,5 +13,5 @@ internal fun Mike.toResponse() =
         period = this.period,
         month = this.month,
         location = this.location,
-        uri = this.uri
+        uri = this.uri,
     )
