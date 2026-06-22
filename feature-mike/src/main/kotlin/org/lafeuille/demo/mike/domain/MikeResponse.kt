@@ -18,5 +18,5 @@ data class MikeResponse(
     val period: Period,
     val month: Month,
     val location: Point,
-    val uri: URI
+    val uri: URI,
 )
