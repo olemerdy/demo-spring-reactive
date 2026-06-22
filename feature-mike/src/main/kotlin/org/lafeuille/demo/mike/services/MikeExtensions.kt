@@ -7,5 +7,11 @@ internal fun Mike.toResponse() =
     MikeResponse(
         id = this.id,
         name = this.name,
+        locale = this.locale,
+        currency = this.currency,
+        duration = this.duration,
+        period = this.period,
+        month = this.month,
         location = this.location,
+        uri = this.uri
     )
