@@ -20,10 +20,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '25'
-      - uses: gradle/actions/setup-gradle@v6
+      - uses: gradle/actions/setup-gradle@v6.2.0
         with:
           cache-provider: basic
-      - uses: gradle/actions/dependency-submission@v6
+      - uses: gradle/actions/dependency-submission@v6.2.0
         with:
           cache-provider: basic
 
